@@ -53,10 +53,10 @@ export default function Home() {
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-20">
             <div className="max-w-4xl">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-slate-900 tracking-tight">
-                Making global business better with <span className="text-blue-800">AI.</span>
+                Elevating global business through <span className="text-blue-800">AI.</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 mb-10 leading-relaxed font-medium">
-                Bloomgard plans to build smart software to manage massive global industries. With our active AI CRM already empowering modern enterprise, our future divisions will optimize everything from power grids to quantum computing.
+                Bloomgard is developing intelligent software solutions designed to orchestrate large-scale global industries. While our active AI CRM already empowers modern enterprises, our upcoming divisions will optimize operations across critical sectors, from energy grids to quantum computing.
               </p>
               <div className="flex items-center gap-4">
                 <span className="text-sm font-bold tracking-widest text-slate-500 uppercase flex items-center">
@@ -86,7 +86,7 @@ export default function Home() {
                   Bloomgard Enterprise
                 </h2>
                 <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We plan to build comprehensive software to help large companies manage their workforce. Our active, flagship AI CRM platform currently helps businesses find leads, organize data, and radically accelerate corporate workflows.
+                  We are developing comprehensive software solutions to help large organizations manage their workforce efficiently. Our flagship AI CRM platform currently enables businesses to acquire leads, organize critical data, and significantly accelerate corporate workflows.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/enterprise" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
@@ -116,7 +116,7 @@ export default function Home() {
                   Bloomgard Energy
                 </h2>
                 <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We plan to create software for massive power plants and renewable energy grids. In the future, our AI will ensure the power stays on and help fix machines before they break, seamlessly integrating clean solar and wind energy.
+                  We are designing software to power large-scale energy infrastructure and renewable grids. Our future AI systems will ensure uninterrupted power supply and facilitate predictive maintenance, enabling seamless integration of clean solar and wind energy.
                 </p>
                 <Link href="/energy" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
                   Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
@@ -141,7 +141,7 @@ export default function Home() {
                   Bloomgard Data
                 </h2>
                 <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We plan to build software to run huge data centers. Our future tools will keep servers cool autonomously, manage internet traffic efficiently, and absolutely prevent critical downtime.
+                  We are engineering software to manage extensive data center operations. Our upcoming tools will autonomously regulate server temperatures, optimize internet traffic routing, and rigorously prevent critical system downtime.
                 </p>
                 <Link href="/data" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
                   Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
@@ -166,7 +166,7 @@ export default function Home() {
                   Bloomgard QNTM
                 </h2>
                 <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We plan to build cloud quantum computers deeply integrated with our AI pipelines in India. This future technology will help solve complex problems that normal computers cannot handle.
+                  We are developing cloud-based quantum computing infrastructure, deeply integrated with our AI pipelines in India. This advanced technology will unlock solutions to complex computational challenges that are beyond the reach of classical systems.
                 </p>
                 <Link href="/qntm" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
                   Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
@@ -191,7 +191,7 @@ export default function Home() {
                   Bloomgard Finance
                 </h2>
                 <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We plan to provide AI software for banks and financial companies. Our future tools will help manage money, detect sophisticated fraud, and automate banking tasks entirely.
+                  We are building specialized AI software for banks and financial institutions. Our forthcoming tools will streamline asset management, detect sophisticated fraud patterns, and fully automate routine banking operations.
                 </p>
                 <Link href="/finance" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
                   Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
