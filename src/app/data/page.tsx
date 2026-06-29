@@ -29,9 +29,9 @@ export default function DataPlan() {
       <JsonLd data={softwareSchema} />
       
       {/* Header */}
-      <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className="w-full bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
-          <span className="font-extrabold text-3xl tracking-tighter text-black">Bloomgard.</span>
+          <span className="font-extrabold text-4xl tracking-tighter text-black">Bloomgard.</span>
           <Link href="/" className="inline-flex items-center text-blue-700 font-bold hover:text-blue-900 transition-colors">
             <ArrowLeft className="mr-2 w-5 h-5" /> Back to Home
           </Link>
@@ -50,15 +50,15 @@ export default function DataPlan() {
               Our plan for the Data division is to make massive data centers smarter, cooler, and practically invincible.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed mb-6">
-              The modern internet relies on enormous warehouses filled with servers. These servers generate extreme heat and consume vast amounts of electricity. When they fail, global commerce halts. We solve this with the Bloomgard Data erp.
+              The modern internet relies on enormous warehouses filled with servers. These servers generate extreme heat and consume vast amounts of electricity. When they fail, global commerce halts. We plan to solve this with the Bloomgard Data erp.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
-              We are building software that automates thermal physics management. Our AI continuously tweaks liquid cooling valves and redirects server traffic instantly to prevent overheating, ensuring absolute server uptime automation for our institutional clients.
+              We plan to build software that automates thermal physics management. In the future, our AI will continuously tweak liquid cooling valves and redirect server traffic instantly to prevent overheating, ensuring absolute server uptime automation for our institutional clients.
             </p>
           </div>
           <div className="relative h-[600px] w-full bg-white border border-gray-200 shadow-xl p-4">
             <div className="relative w-full h-full">
-              <Image src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200" alt="Server room with neon lights" fill className="object-cover grayscale opacity-90" />
+              <Image src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200" alt="Server room with neon lights" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -70,18 +70,18 @@ export default function DataPlan() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Thermal Physics Automation</h3>
-            <p className="text-slate-600 leading-relaxed">Dynamic HVAC and liquid cooling control based on real-time CPU temperatures across thousands of racks.</p>
+            <h3 className="text-xl font-bold mb-4">Future Thermal Physics Automation</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build dynamic HVAC and liquid cooling control based on real-time CPU temperatures across thousands of racks.</p>
           </div>
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Uptime Insurance</h3>
-            <p className="text-slate-600 leading-relaxed">Sub-millisecond failover routing protocols that detect hardware faults and seamlessly transfer workloads.</p>
+            <h3 className="text-xl font-bold mb-4">Future Uptime Insurance</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build sub-millisecond failover routing protocols that detect hardware faults and seamlessly transfer workloads.</p>
           </div>
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Energy Efficiency Optimization</h3>
-            <p className="text-slate-600 leading-relaxed">Algorithmic workload scheduling that aligns heavy computation with periods of cheap, renewable energy availability.</p>
+            <h3 className="text-xl font-bold mb-4">Future Energy Optimization</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build algorithmic workload scheduling that aligns heavy computation with periods of cheap, renewable energy availability.</p>
           </div>
         </div>
       </section>

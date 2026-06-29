@@ -29,9 +29,9 @@ export default function EnergyPlan() {
       <JsonLd data={softwareSchema} />
       
       {/* Header */}
-      <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className="w-full bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
-          <span className="font-extrabold text-3xl tracking-tighter text-black">Bloomgard.</span>
+          <span className="font-extrabold text-4xl tracking-tighter text-black">Bloomgard.</span>
           <Link href="/" className="inline-flex items-center text-blue-700 font-bold hover:text-blue-900 transition-colors">
             <ArrowLeft className="mr-2 w-5 h-5" /> Back to Home
           </Link>
@@ -47,18 +47,18 @@ export default function EnergyPlan() {
             </div>
             <h1 className="text-5xl md:text-6xl font-extrabold mb-8 leading-tight">Bloomgard Energy Plan</h1>
             <p className="text-xl text-slate-700 leading-relaxed font-medium mb-6">
-              Our plan for the Energy division is to use AI to keep the world&apos;s power grids stable and perfectly optimized.
+              Our plan for the Energy division is to use AI to keep the world&apos;s power grids stable and perfectly optimized, with a massive focus on accelerating the global shift to renewable energy.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed mb-6">
-              Managing a modern power plant is incredibly complex. If a critical turbine fails, millions lose electricity. We are building the Bloomgard Energy erp to monitor millions of data points across massive energy infrastructures in real-time.
+              Managing a modern power plant is incredibly complex. If a critical turbine fails, millions lose electricity. We plan to build the Bloomgard Energy erp to monitor millions of data points across massive renewable energy infrastructures in real-time.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Our predictive maintenance software alerts engineers weeks before a machine breaks. We are ensuring absolute grid stability and paving the way for hyper-efficient renewable energy integration.
+              In the future, our predictive maintenance software will alert engineers weeks before a machine breaks. We plan to ensure absolute grid stability and pave the way for hyper-efficient solar, wind, and hydro integration.
             </p>
           </div>
           <div className="relative h-[600px] w-full bg-white border border-gray-200 shadow-xl p-4">
             <div className="relative w-full h-full">
-              <Image src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=1200" alt="Wind turbines at sunset" fill className="object-cover grayscale opacity-90" />
+              <Image src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=1200" alt="Wind turbines at sunset" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -70,18 +70,18 @@ export default function EnergyPlan() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Predictive Maintenance</h3>
-            <p className="text-slate-600 leading-relaxed">Acoustic and thermal sensors analyzed by AI to detect micro-fractures in turbines before they cause catastrophic failure.</p>
+            <h3 className="text-xl font-bold mb-4">Future Predictive Maintenance</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build acoustic and thermal sensors analyzed by AI to detect micro-fractures in wind turbines before they cause catastrophic failure.</p>
           </div>
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Grid Load Balancing</h3>
-            <p className="text-slate-600 leading-relaxed">Algorithmic distribution of energy loads across cities to prevent blackouts during peak usage hours like heatwaves.</p>
+            <h3 className="text-xl font-bold mb-4">Future Grid Load Balancing</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build algorithmic distribution of renewable energy loads across cities to prevent blackouts during peak usage hours like heatwaves.</p>
           </div>
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Renewable Integration</h3>
-            <p className="text-slate-600 leading-relaxed">Smart routing protocols that automatically store excess solar and wind energy in battery banks for later dispatch.</p>
+            <h3 className="text-xl font-bold mb-4">Renewable AI Integration</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build smart routing protocols that automatically store excess solar and wind energy in vast battery banks for later dispatch.</p>
           </div>
         </div>
       </section>

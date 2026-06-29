@@ -29,9 +29,9 @@ export default function EnterprisePlan() {
       <JsonLd data={softwareSchema} />
       
       {/* Header */}
-      <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className="w-full bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
-          <span className="font-extrabold text-3xl tracking-tighter text-black">Bloomgard.</span>
+          <span className="font-extrabold text-4xl tracking-tighter text-black">Bloomgard.</span>
           <Link href="/" className="inline-flex items-center text-blue-700 font-bold hover:text-blue-900 transition-colors">
             <ArrowLeft className="mr-2 w-5 h-5" /> Back to Home
           </Link>
@@ -47,20 +47,20 @@ export default function EnterprisePlan() {
             </div>
             <h1 className="text-5xl md:text-6xl font-extrabold mb-8 leading-tight">Bloomgard Enterprise Plan</h1>
             <p className="text-xl text-slate-700 leading-relaxed font-medium mb-6">
-              Our plan for the Enterprise division is simple: build the absolute best AI tools for large companies, centered around our flagship AI CRM.
+              Our plan for the Enterprise division is simple: we plan to build the absolute best AI tools for large companies, centered around our flagship, active AI CRM.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              Right now, big companies waste millions of hours on manual tasks. We are building an ecosystem of software that acts like a highly intelligent assistant. It reads emails, qualifies leads, and organizes global teams autonomously.
+              Right now, big companies waste millions of hours on manual tasks. While our AI CRM is currently active and helping businesses, we plan to build an entire ecosystem of software that acts like a highly intelligent assistant for every aspect of enterprise management.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="https://cma.bloomgard.co" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                Access AI CRM <ArrowRight className="ml-2 w-5 h-5" />
+                Access Active AI CRM <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </div>
           </div>
           <div className="relative h-[600px] w-full bg-white border border-gray-200 shadow-xl p-4">
             <div className="relative w-full h-full">
-              <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200" alt="Corporate team strategy meeting" fill className="object-cover grayscale opacity-90" />
+              <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200" alt="Corporate team strategy meeting" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -72,18 +72,18 @@ export default function EnterprisePlan() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">AI CRM Integration</h3>
-            <p className="text-slate-600 leading-relaxed">Our advanced AI CRM automatically logs interactions, scores leads based on sentiment analysis, and predicts closing probabilities.</p>
+            <h3 className="text-xl font-bold mb-4">Active AI CRM Integration</h3>
+            <p className="text-slate-600 leading-relaxed">Our advanced AI CRM currently automatically logs interactions, scores leads based on sentiment analysis, and predicts closing probabilities.</p>
           </div>
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Automated Scheduling</h3>
-            <p className="text-slate-600 leading-relaxed">Cross-timezone scheduling handled entirely by AI agents, freeing up administrative bottlenecks across massive corporate structures.</p>
+            <h3 className="text-xl font-bold mb-4">Future Automated Scheduling</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build cross-timezone scheduling handled entirely by AI agents, freeing up administrative bottlenecks across massive corporate structures.</p>
           </div>
           <div className="bg-white p-8 border border-gray-200 shadow-sm">
             <CheckCircle2 className="w-8 h-8 text-blue-700 mb-6" />
-            <h3 className="text-xl font-bold mb-4">Predictive Analytics</h3>
-            <p className="text-slate-600 leading-relaxed">Real-time dashboards that forecast quarterly revenue, employee turnover, and supply chain delays before they happen.</p>
+            <h3 className="text-xl font-bold mb-4">Future Predictive Analytics</h3>
+            <p className="text-slate-600 leading-relaxed">We plan to build real-time dashboards that forecast quarterly revenue, employee turnover, and supply chain delays before they happen.</p>
           </div>
         </div>
       </section>
