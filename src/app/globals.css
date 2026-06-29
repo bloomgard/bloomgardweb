@@ -1,15 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030305;
-  --foreground: #ededed;
+  --background: #ffffff;
+  --foreground: #111827;
+  --brand-primary: #0a2540; /* Authoritative corporate blue */
+  --brand-secondary: #0052cc;
+  --surface-gray: #f9fafb;
+  --border-color: #e5e7eb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 }
 
 body {
@@ -17,92 +29,27 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism utilities */
-@utility glass {
-  background-color: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-brand);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-@utility glass-card {
-  background-color: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02), 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+p {
+  line-height: 1.6;
 }
 
-@utility glass-button {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #030305;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background-color: rgba(255, 255, 255, 1);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
-}
-
-/* Mesh gradients for Dark Tulip aesthetic */
-.mesh-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background-color: #030305;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.mesh-blob-1 {
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle, rgba(56, 12, 102, 0.25) 0%, rgba(56, 12, 102, 0) 65%);
-  filter: blur(90px);
-  animation: float 22s infinite ease-in-out alternate;
-}
-
-.mesh-blob-2 {
-  position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 65vw;
-  height: 65vw;
-  background: radial-gradient(circle, rgba(12, 59, 102, 0.2) 0%, rgba(12, 59, 102, 0) 65%);
-  filter: blur(100px);
-  animation: float 28s infinite ease-in-out alternate-reverse;
-}
-
-.mesh-blob-3 {
-  position: absolute;
-  top: 30%;
-  left: 20%;
-  width: 45vw;
-  height: 45vw;
-  background: radial-gradient(circle, rgba(120, 15, 45, 0.15) 0%, rgba(120, 15, 45, 0) 65%);
-  filter: blur(120px);
-  animation: float-slow 35s infinite linear;
-}
-
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(3%, 5%) scale(1.05); }
-  100% { transform: translate(-3%, -5%) scale(0.95); }
-}
-
-@keyframes float-slow {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(8%, -8%) rotate(120deg); }
-  66% { transform: translate(-8%, 8%) rotate(240deg); }
-  100% { transform: translate(0, 0) rotate(360deg); }
 }

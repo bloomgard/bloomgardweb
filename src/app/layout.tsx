@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bloomgard Group | AI-Native Enterprise Infrastructure",
-  description: "Bloomgard builds the autonomous systems required to manage the next generation of global industry.",
+  title: "Bloomgard Group | Global Enterprise & Infrastructure Optimization",
+  description: "Bloomgard builds autonomous systems and enterprise management protocols to optimize global infrastructure, data grids, and future computing.",
 };
 
 export default function RootLayout({
@@ -23,17 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark`}
-      style={{ colorScheme: 'dark' }}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
-        <div className="mesh-bg">
-          <div className="mesh-blob-1"></div>
-          <div className="mesh-blob-2"></div>
-          <div className="mesh-blob-3"></div>
-        </div>
         {children}
       </body>
     </html>
