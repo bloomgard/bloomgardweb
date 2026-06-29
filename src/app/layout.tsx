@@ -13,8 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bloomgard Group | Global Enterprise & Infrastructure Optimization",
+  title: {
+    template: '%s | Bloomgard Corporation',
+    default: 'Bloomgard Corporation | Global Enterprise & Infrastructure Optimization',
+  },
   description: "Bloomgard builds autonomous systems and enterprise management protocols to optimize global infrastructure, data grids, and future computing.",
+  openGraph: {
+    title: 'Bloomgard Corporation',
+    description: 'Global infrastructure optimization and AI native erp.',
+    url: 'https://bloomgard.co',
+    siteName: 'Bloomgard Corporation',
+    images: [
+      {
+        url: 'https://bloomgard.co/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Bloomgard Corporate Headquarters',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
