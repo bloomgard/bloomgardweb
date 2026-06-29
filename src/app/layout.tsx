@@ -13,22 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    template: '%s | Bloomgard Corporation',
-    default: 'Bloomgard Corporation | Global Enterprise & Infrastructure Optimization',
-  },
+  title: 'bloomgard',
   description: "Bloomgard builds autonomous systems and enterprise management protocols to optimize global infrastructure, data grids, and future computing.",
   openGraph: {
-    title: 'Bloomgard Corporation',
+    title: 'Bloomgard',
     description: 'Global infrastructure optimization and AI native erp.',
     url: 'https://bloomgard.co',
-    siteName: 'Bloomgard Corporation',
+    siteName: 'Bloomgard',
     images: [
       {
         url: 'https://bloomgard.co/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bloomgard Corporate Headquarters',
+        alt: 'Bloomgard Headquarters',
       },
     ],
     locale: 'en_US',
