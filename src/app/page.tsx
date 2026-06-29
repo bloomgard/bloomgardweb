@@ -22,7 +22,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex justify-between items-center">
           <div className="flex items-center">
             {/* Logo Fallback (Matches uploaded image style) */}
-            <span className="font-extrabold text-2xl tracking-tighter text-black">Bloomgard.</span>
+            <span className="font-extrabold text-4xl tracking-tighter text-black">Bloomgard.</span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
             <Link href="/enterprise" className="hover:text-blue-700 transition-colors">Enterprise</Link>
@@ -30,6 +30,7 @@ export default function Home() {
             <Link href="/data" className="hover:text-blue-700 transition-colors">Data</Link>
             <Link href="/qntm" className="hover:text-blue-700 transition-colors">QNTM</Link>
             <Link href="/finance" className="hover:text-blue-700 transition-colors">Finance</Link>
+            <a href="mailto:support@bloomgard.co" className="hover:text-blue-700 transition-colors">Contact</a>
           </nav>
         </div>
       </header>
@@ -80,11 +81,16 @@ export default function Home() {
                     Bloomgard Enterprise
                   </h2>
                   <p className="text-lg text-slate-700 mb-8 leading-relaxed font-medium">
-                    We build software to help large companies manage their customers and employees. Our AI helps businesses find leads, organize data, and work faster.
+                    We build software to help large companies manage their customers and employees. Our flagship AI CRM platform helps businesses find leads, organize data, and accelerate workflows.
                   </p>
-                  <Link href="/enterprise" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                    Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link href="/enterprise" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
+                      Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
+                    </Link>
+                    <a href="https://cma.bloomgard.co" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-white text-blue-900 border border-blue-900 px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-slate-50 transition-colors shadow-lg">
+                      Access AI CRM <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </div>
                 </div>
                 <div className="hidden lg:block relative h-[500px] w-full bg-white border border-gray-200 shadow-xl p-4">
                   <div className="relative w-full h-full">
@@ -215,7 +221,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
             <div className="flex items-center mb-6">
-              <span className="font-extrabold text-xl tracking-tighter text-slate-400">Bloomgard.</span>
+              <span className="font-extrabold text-3xl tracking-tighter text-slate-400">Bloomgard.</span>
             </div>
             <p className="text-sm font-medium text-slate-500">
               &copy; {new Date().getFullYear()} Bloomgard Group. All rights reserved. <br/>
@@ -232,11 +238,8 @@ export default function Home() {
               <Link href="/finance" className="hover:text-blue-700 transition-colors">Finance</Link>
             </div>
             <div className="flex flex-col gap-3 text-sm text-slate-600 font-medium">
-              <span className="font-extrabold text-slate-900 mb-2 uppercase tracking-widest text-xs">Corporate</span>
-              <Link href="#" className="hover:text-blue-700 transition-colors">Investor Relations</Link>
-              <Link href="#" className="hover:text-blue-700 transition-colors">Media Inquiries</Link>
-              <Link href="#" className="hover:text-blue-700 transition-colors">Careers</Link>
-              <Link href="#" className="hover:text-blue-700 transition-colors">Legal</Link>
+              <span className="font-extrabold text-slate-900 mb-2 uppercase tracking-widest text-xs">Contact</span>
+              <a href="mailto:support@bloomgard.co" className="hover:text-blue-700 transition-colors font-bold text-blue-800">support@bloomgard.co</a>
             </div>
           </div>
         </div>
