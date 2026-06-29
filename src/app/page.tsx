@@ -47,7 +47,7 @@ export default function Home() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-white/85 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
           </div>
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-20">
@@ -74,7 +74,7 @@ export default function Home() {
           <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div className="absolute inset-0 z-0">
               <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000" alt="Modern corporate office interior highlighting enterprise management" fill className="object-cover" />
-              <div className="absolute inset-0 bg-white/90 backdrop-blur-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
               <div className="max-w-3xl">
@@ -104,7 +104,7 @@ export default function Home() {
           <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div className="absolute inset-0 z-0">
               <Image src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2000" alt="Modern power plant and renewable energy grid infrastructure" fill className="object-cover" />
-              <div className="absolute inset-0 bg-slate-50/90 backdrop-blur-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-l from-slate-50/95 via-slate-50/85 to-transparent"></div>
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
               <div className="max-w-3xl ml-auto">
@@ -129,7 +129,7 @@ export default function Home() {
           <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div className="absolute inset-0 z-0">
               <Image src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000" alt="Massive illuminated server racks inside a global data center" fill className="object-cover" />
-              <div className="absolute inset-0 bg-white/90 backdrop-blur-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
               <div className="max-w-3xl">
@@ -154,7 +154,7 @@ export default function Home() {
           <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div className="absolute inset-0 z-0">
               <Image src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2000" alt="Advanced quantum technology hardware setup" fill className="object-cover" />
-              <div className="absolute inset-0 bg-slate-50/90 backdrop-blur-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-l from-slate-50/95 via-slate-50/85 to-transparent"></div>
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
               <div className="max-w-3xl ml-auto">
@@ -179,7 +179,7 @@ export default function Home() {
           <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div className="absolute inset-0 z-0">
               <Image src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2000" alt="Financial graphs and data on a dashboard" fill className="object-cover" />
-              <div className="absolute inset-0 bg-white/90 backdrop-blur-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
             </div>
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
               <div className="max-w-3xl">
@@ -203,13 +203,13 @@ export default function Home() {
         </div>
 
         {/* 3. Our Vision Section */}
-        <section className="relative w-full bg-blue-950 text-white py-32 border-b border-blue-900">
+        <section className="relative w-full bg-gradient-to-b from-blue-900 to-slate-900 py-32 border-b border-blue-950">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <Globe className="w-16 h-16 text-blue-400 mx-auto mb-8" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight">
+            <Globe className="w-16 h-16 text-blue-300 mx-auto mb-8" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight text-white">
               Bringing AI & Humanity Closer.
             </h2>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed font-medium">
               At Bloomgard, our vision extends far beyond raw computation and industrial management. We believe the true promise of artificial intelligence lies in its ability to elevate human potential. By automating the complex, the dangerous, and the mundane across global infrastructure, we aim to free humanity to focus on what matters most: creativity, connection, and progress. We don&apos;t just build software; we build the bridge to a liberated future.
             </p>
           </div>
