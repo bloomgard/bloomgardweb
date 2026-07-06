@@ -31,7 +31,7 @@ export default function EnergyPlan() {
       {/* Header */}
       <header className="w-full bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
-          <span className="font-extrabold text-4xl tracking-tighter text-black">Bloomgard.</span>
+          <img src="/logo.png" alt="Bloomgard Logo" className="h-8 w-auto" />
           <Link href="/" className="inline-flex items-center text-blue-700 font-bold hover:text-blue-900 transition-colors">
             <ArrowLeft className="mr-2 w-5 h-5" /> Back to Home
           </Link>
