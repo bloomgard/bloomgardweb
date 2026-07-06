@@ -22,7 +22,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex justify-between items-center">
           <div className="flex items-center">
             {/* Logo Fallback (Matches uploaded image style) */}
-            <img src="/logo.png" alt="Bloomgard Logo" className="h-8 w-auto" />
+            <img src="/logo.png" alt="Bloomgard Logo" className="h-12 w-auto" />
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
             <Link href="/enterprise" className="hover:text-blue-700 transition-colors">Enterprise</Link>

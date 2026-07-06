@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'bloomgard',
+  title: 'Bloomgard',
   description: "Bloomgard builds autonomous systems and enterprise management protocols to optimize global infrastructure, data grids, and future computing.",
   openGraph: {
     title: 'Bloomgard',
