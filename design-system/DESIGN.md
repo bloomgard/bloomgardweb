@@ -37,16 +37,19 @@ Real examples from bloomgard.co:
 
 ### Brand palette
 
-These eight colours are the brand. Their values never change between themes.
+The four main colours are **white, blue, orange and black**: a near-white page, sapphire-to-indigo blues for depth, one bright vermilion orange for emphasis and kohl black for type. Marigold, peacock and lotus support them. Brand values never change between themes.
 
 | Token | Hex | Name and origin | Use |
 |---|---|---|---|
-| `kora` | `#f4efe4` | Kora, raw unbleached cotton | The light canvas. |
-| `kajal` | `#15120e` | Kajal, kohl | Ink, primary buttons, dark cards. |
-| `sindoor` | `#c4441c` | Sindoor, vermilion | The accent: one emphasis per view, hover on primary actions, the active dot. |
-| `marigold` | `#e5a03a` | Genda, marigold | Highlights on dark surfaces only. Fails contrast on `kora`. |
-| `neel` | `#18214a` | Neel, indigo | Inverse bands, focus rings in light theme, app icon ground. |
-| `neel-deep` | `#0e1430` | Deep indigo | Footers and the darkest bands. |
+| `kora` | `#fbfaf7` | Kora, whitewashed cotton | The light canvas: white with the faintest warmth. |
+| `kora-light` | `#ffffff` | Pure white | Cards, raised surfaces, text on dark bands. |
+| `kajal` | `#15120e` | Kajal, kohl | Ink, primary buttons, the motif belt, dark cards. |
+| `neelam` | `#2747d8` | Neelam, sapphire | The bright blue: glows, gradient ends, glyphs on division pages, links, focus. |
+| `akash` | `#e8eeff` | Akash, sky | Soft blue washes behind sections and hover rows. |
+| `neel` | `#18214a` | Neel, indigo | Inverse bands, app icon ground, the middle of every blue gradient. |
+| `neel-deep` | `#0e1430` | Deep indigo | Footers and the dark start of blue gradients. |
+| `sindoor` | `#ea5420` | Sindoor, bright vermilion | The orange accent: the italic phrase in a headline, the orange glow, primary-button hover. 3.5:1 on `kora`, so only 24px+ or as a fill. |
+| `marigold` | `#e5a03a` | Genda, marigold | Highlights on dark and blue surfaces only. Fails contrast on `kora`. |
 | `peacock` | `#0f6e6a` | Peacock teal | Data series and supporting illustration. |
 | `lotus` | `#b8476d` | Lotus pink | Data series only. |
 
@@ -56,13 +59,25 @@ Build interfaces only from the role tokens below. They switch automatically betw
 
 - **Surfaces.** Set the page on `canvas`. Group content on `surface`. Lift inputs, tables and popovers onto `surface-raised`. Use `surface-inverse` for one full-bleed dark band per page, and `surface-ink` for a single dark feature card.
 - **Lines.** Use `line` for dividers and card borders. Use `line-strong` for borders of controls a person operates (inputs, secondary buttons), because it meets 3:1 against every surface.
-- **Text.** Set body copy in `ink`. Set secondary copy, captions, labels and placeholders that must be read in `ink-soft`. `ink-mute` is decorative only (eyebrows at large sizes, watermarks, disabled hints) because it reaches only 3.2:1 on `canvas` in the light theme. On `surface-inverse` and `surface-ink`, use `ink-inverse`.
-- **Actions.** The primary button is `primary` with `on-primary` text (ink on light, ivory on dark). On hover it turns `accent`. Use `accent` as a fill sparingly; use `accent-text` for accent-coloured words and links at body size. `accent-soft` is the tint behind accent badges.
-- **Focus.** Every focusable element shows a 2px `focus` outline with 2px offset: indigo in light theme, marigold in dark.
+- **Text.** Set body copy in `ink`. Set secondary copy, captions, labels and placeholders that must be read in `ink-soft`. `ink-mute` is decorative only (eyebrows at large sizes, watermarks, disabled hints) because it reaches only 3.5:1 on `canvas` in the light theme. On `surface-inverse` and `surface-ink`, use `ink-inverse`.
+- **Actions.** The primary button is `primary` with `on-primary` text (black with white text in light, ivory with ink in dark). On hover it turns `accent`; the website keeps white text there, which reads at 3.6:1, so in products use `on-accent` (ink, 5.2:1). Use `accent` for large italic display phrases and fills; use `accent-text` (`#b83a0e`) for accent-coloured words at body size. `accent-soft` is the tint behind accent badges.
+- **Blue.** `brand-blue` carries the blue side of the brand in UI: division glyphs at rest, list-row hover text, links and the second chart series. `brand-blue-soft` is the matching wash for hovered rows and soft section backgrounds.
+- **Focus.** Every focusable element shows a 2px `focus` outline with 2px offset: sapphire in light theme, marigold in dark.
 - **Status.** `success`, `warning`, `danger` and `info` each have a `-soft` background. Always pair a status colour with a word or icon. Success is teal-leaning and danger is crimson, so they differ in lightness as well as hue.
 - **Data.** Colour series in the order `data-1` to `data-6`. Charts with one series use `data-1`; use `ink-soft` for axes and `line` for gridlines.
 
-Never use pure black, pure white or grey from a framework default. Neutrals here are warm: they carry a little of the kora cotton.
+Never use pure black or grey from a framework default. Neutrals here are warm: they carry a little of the kora cotton. Pure white is reserved for cards and raised surfaces on the `kora` page.
+
+### Signature gradients
+
+Gradients are part of the brand, always in blue, with orange only as a glow. Use these four and nothing else (they live in `tokens.css` as `--glow-blue`, `--glow-orange`, `--band-blue` and `--card-ink-blue`):
+
+- **Twin glow.** Behind an editorial hero, a large blue radial glow (`#6f8dff` → `#2747d8`, about 600px, 45–50% opacity, heavily blurred) overlaps a slightly smaller orange glow (`#ffb15c` → `#ea5420`, about 460–520px, 40–45%). They must touch and melt into each other; the soft violet where they meet is intended. The mandala sits over both.
+- **Blue band.** Full-bleed dark sections (vision, manifesto) use a 160° linear gradient from `neel-deep` through `neel` to `neelam`, with the jaali lattice and a marigold mandala on top. Headline italics on it are `marigold`.
+- **Ink-to-blue card.** A single feature card goes from `kajal` through `neel` to `neelam` at 135°.
+- **Sky wash.** A section may fade from `akash` at 60% at the top to white, to set it apart without a border.
+
+Never use purple-to-pink, rainbow or multi-stop decorative gradients.
 
 ## Typography
 
@@ -130,7 +145,8 @@ Motifs are what make a Bloomgard surface recognisable without the logo. Use at m
 - **Mandala.** A generated, line-drawn mandala of concentric rings, petals, spokes and dots. Place it as ambient art behind a hero or a feature band, partly off-canvas, at 10–14% `ink` on light or 12% `marigold` on `surface-inverse`. In product UI, use it only on empty states, login and onboarding screens, at 6–8%. Never put text directly on its densest centre.
 - **Jaali lattice.** A 56px tile of a diamond, a circle and (on dark) a cross. Lay it over `surface-inverse` bands, footers and app sidebars in dark theme at 6–7% stroke opacity. It should be felt, not seen.
 - **Grain.** A fine paper noise over the light `canvas` on editorial heroes and feature sections. It makes kora read as material. Do not use it in dense product views.
-- **Glow.** One soft marigold-to-sindoor radial blur behind a hero, at 45–60% opacity. Editorial only.
+- **Twin glow.** The overlapping blue and orange glows described under Signature gradients. Editorial only.
+- **Motif belt.** A slim kajal band, about 88px tall, with dashed marigold stitching along both edges and a single repeating row of Indian motifs: buta (paisley), rangoli star, chakra and lotus, joined by small jaali diamonds, drawn in white, marigold and pale blue (`#7f9bff`) line at 1.4px. It drifts sideways once every 48 seconds. The page's glyph sits in a round kajal medallion with a marigold ring, larger than the belt so it reads as a buckle. Use it once per page, between a hero and the content, in place of a strip of words or numbers. Never put text on it.
 
 ## Product identity
 
@@ -146,7 +162,7 @@ Every Bloomgard product and division gets a **glyph**: a geometric line mark dra
 | Education | Rising arcs over an open page | Knowledge unfolding |
 | Life | Seed of life: seven circles | Growth and health |
 
-To make a glyph for a new product: start from the 120×120 grid, keep the mark inside a 104-unit circle, use only circles, arcs, straight lines and squares, keep it legible at 16px, and give it one idea a customer would recognise. Glyphs render in `ink` at rest and `accent` on hover or when active.
+To make a glyph for a new product: start from the 120×120 grid, keep the mark inside a 104-unit circle, use only circles, arcs, straight lines and squares, keep it legible at 16px, and give it one idea a customer would recognise. Glyphs render in `ink` at rest and `brand-blue` on hover or when active; on dark belts and medallions they are `marigold`.
 
 **App icons** place the glyph in `kora` on a `neel` rounded square (radius 22.5% of the side) with one `marigold` dot at the top right. Every product icon follows this template, so the family reads as one company.
 

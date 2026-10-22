@@ -9,7 +9,7 @@ Apply this whenever you create or change UI for Bloomgard or any Bloomgard produ
 
 ## 1. Choose the register
 
-- **Editorial**: websites, launch pages, decks, emails, social graphics. Big serif type on `kora`, one mandala or glow, wide spacing.
+- **Editorial**: websites, launch pages, decks, emails, social graphics. Big serif type on near-white `kora`, the blue-and-orange twin glow with a mandala, a motif belt, blue gradient bands, wide spacing.
 - **Product**: app screens, dashboards, settings, tables, forms. Geist sans at 13–14px, compact spacing, light and dark themes, motifs nearly invisible.
 
 ## 2. Wire up the tokens
@@ -32,7 +32,9 @@ Theme: light by default; set `data-theme="dark"` on `<html>` for dark, or leave 
 - `ink-mute` is decorative only. Small readable text uses `ink-soft`.
 - Primary action: `j-btn j-btn--primary` (ink pill, turns sindoor on hover). One primary button per view.
 - `accent` (sindoor) appears once per view as emphasis: an italic serif phrase, an active dot, a key number. Not as a background for large areas.
-- `marigold` only on dark surfaces.
+- The main colours are white, blue, orange and black. Blue (`brand-blue`, `neelam`, the gradients) gives depth; orange (`accent`) is for one large italic phrase or fill per view; small orange text uses `accent-text`.
+- `marigold` only on dark and blue surfaces.
+- Gradients: only the four signature gradients in `DESIGN.md` (`--glow-blue`, `--glow-orange`, `--band-blue`, `--card-ink-blue`).
 - Headlines: Instrument Serif, regular weight, tight leading, `text-wrap: balance`. Body: Geist. Labels, badges, table headers, IDs: Geist Mono uppercase with letter-spacing.
 - Separate with 1px borders and surface steps. Shadows only on floating layers (`--shadow-pop`).
 - Radii: pills for buttons, tabs and badges; 10px for inputs; 16px for cards and tables.
@@ -41,7 +43,7 @@ Theme: light by default; set `data-theme="dark"` on `<html>` for dark, or leave 
 - Icons: Lucide, 16px in dense UI, 20px elsewhere. No emoji anywhere.
 - Copy: plain, sentence case, British/Indian spelling, buttons name the action ("Create lead"). Never claim a planned feature is live.
 - Motion: `--ease-out`, 150ms hovers, 300ms panels, an 800ms fade-up reveal once. Respect reduced motion. Content must be readable without animation.
-- Do not use gradients (except the editorial hero glow), glassmorphism, stock photos of people, or coloured left-border cards.
+- Do not use other gradients, glassmorphism, stock photos of people, "Live"/"New" pill tags as decoration, or coloured left-border cards.
 
 ## 4. Brand assets in this folder
 

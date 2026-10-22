@@ -44,7 +44,7 @@ body.j-root {
 .j-display-xl em,
 .j-display-l em,
 .j-display-m em,
-.j-display-s em { font-style: italic; color: var(--accent-text); }
+.j-display-s em { font-style: italic; color: var(--accent); }
 
 .j-lede { font-size: 20px; line-height: 32px; color: var(--ink-soft); margin: 0; }
 

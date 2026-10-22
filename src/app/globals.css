@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Kora cotton, kajal ink, sindoor, marigold and neel. */
-  --ivory: #f4efe4;
-  --paper: #faf7f0;
+  /* White, kajal ink, royal blue, sindoor and marigold. */
+  --ivory: #fbfaf7;
+  --paper: #ffffff;
   --ink: #15120e;
   --ink-soft: #5a534a;
   --ink-mute: #8c8478;
-  --line: #ddd3c0;
-  --sindoor: #c4441c;
+  --line: #e6e3dc;
+  --sindoor: #ea5420;
   --marigold: #e5a03a;
   --neel: #18214a;
   --neel-deep: #0e1430;
+  --blue: #2747d8;
+  --sky: #e8eeff;
 
   --background: var(--ivory);
   --foreground: var(--ink);
@@ -30,6 +32,8 @@
   --color-marigold: var(--marigold);
   --color-neel: var(--neel);
   --color-neel-deep: var(--neel-deep);
+  --color-blue: var(--blue);
+  --color-sky: var(--sky);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -38,6 +42,12 @@
 
   --animate-spin-slow: spin 120s linear infinite;
   --animate-marquee: marquee 40s linear infinite;
+  --animate-motif-drift: motif-drift 48s linear infinite;
+}
+
+@keyframes motif-drift {
+  from { background-position: 0 center; }
+  to { background-position: 256px center; }
 }
 
 @keyframes marquee {

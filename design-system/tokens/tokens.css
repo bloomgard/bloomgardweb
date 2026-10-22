@@ -5,16 +5,18 @@
 :root,
 [data-theme="light"] {
   /* Brand palette: fixed values, never themed. */
-  --kora: #f4efe4;
-  --kora-light: #faf7f0;
-  --kora-line: #ddd3c0;
+  --kora: #fbfaf7;
+  --kora-light: #ffffff;
+  --kora-line: #e6e3dc;
   --kajal: #15120e;
   --kajal-soft: #5a534a;
   --kajal-mute: #8c8478;
-  --sindoor: #c4441c;
+  --sindoor: #ea5420;
   --marigold: #e5a03a;
   --neel: #18214a;
   --neel-deep: #0e1430;
+  --neelam: #2747d8;
+  --akash: #e8eeff;
   --peacock: #0f6e6a;
   --lotus: #b8476d;
 
@@ -37,11 +39,13 @@
   --primary: var(--kajal);
   --on-primary: var(--kora-light);
   --accent: var(--sindoor);
-  --accent-text: #a8380f;
-  --on-accent: var(--kora-light);
-  --accent-soft: #f6e0d4;
+  --accent-text: #b83a0e;
+  --on-accent: var(--kajal);
+  --accent-soft: #fde4d8;
+  --brand-blue: var(--neelam);
+  --brand-blue-soft: var(--akash);
   --highlight: var(--marigold);
-  --focus: var(--neel);
+  --focus: var(--neelam);
 
   /* Status: always paired with a word or icon. */
   --success: #0e6b57;
@@ -50,18 +54,24 @@
   --warning-soft: #f7e7c8;
   --danger: #a3192b;
   --danger-soft: #f7dadc;
-  --info: #2c4a9e;
-  --info-soft: #dfe5f6;
+  --info: var(--neelam);
+  --info-soft: var(--akash);
 
   /* Data visualisation, in series order. */
   --data-1: var(--sindoor);
-  --data-2: var(--neel);
+  --data-2: var(--neelam);
   --data-3: #d08a1c;
   --data-4: var(--peacock);
   --data-5: var(--lotus);
   --data-6: #7a6f5c;
 
   --shadow-pop: 0 1px 2px rgba(21, 18, 14, 0.06), 0 12px 32px -8px rgba(21, 18, 14, 0.18);
+
+  /* Signature gradients (editorial). */
+  --glow-blue: radial-gradient(circle, #6f8dff 0%, #2747d8 40%, transparent 70%);
+  --glow-orange: radial-gradient(circle, #ffb15c 0%, #ea5420 45%, transparent 72%);
+  --band-blue: linear-gradient(160deg, #0e1430 0%, #18214a 45%, #2747d8 115%);
+  --card-ink-blue: linear-gradient(135deg, #15120e 0%, #18214a 60%, #2747d8 130%);
   color-scheme: light;
 }
 
@@ -84,6 +94,8 @@
     --accent-text: #f08a62;
     --on-accent: var(--kajal);
     --accent-soft: #3a1d14;
+    --brand-blue: #7f9bff;
+    --brand-blue-soft: #1b2550;
     --highlight: #f0b45a;
     --focus: #f0b45a;
     --success: #4cc4a4;
@@ -123,6 +135,8 @@
   --accent-text: #f08a62;
   --on-accent: var(--kajal);
   --accent-soft: #3a1d14;
+  --brand-blue: #7f9bff;
+  --brand-blue-soft: #1b2550;
   --highlight: #f0b45a;
   --focus: #f0b45a;
   --success: #4cc4a4;

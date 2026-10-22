@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import DivisionGlyph from "@/components/DivisionGlyph";
 import Mandala from "@/components/Mandala";
 import Reveal from "@/components/Reveal";
-import { CONTACT_EMAIL, CRM_URL, divisions, getDivision, type DivisionSlug } from "@/lib/divisions";
+import MotifBand from "@/components/MotifBand";
+import CrmShowcase from "@/components/CrmShowcase";
+import { CONTACT_EMAIL, divisions, getDivision, type DivisionSlug } from "@/lib/divisions";
 
 export default function DivisionPage({
   slug,
@@ -18,7 +20,11 @@ export default function DivisionPage({
   const d = getDivision(slug);
   const i = divisions.indexOf(d);
   const next = divisions[(i + 1) % divisions.length];
-  const live = d.slug === "enterprise";
+  const hasProduct = d.slug === "enterprise";
+  // Section labels count up, since Enterprise has one extra section.
+  const label = (n: number) => String(n).padStart(2, "0");
+  const pillarsIndex = label(hasProduct ? 3 : 2);
+  const visionIndex = label(hasProduct ? 4 : 3);
 
   return (
     <div className="flex w-full flex-col">
@@ -29,8 +35,13 @@ export default function DivisionPage({
         {/* Hero */}
         <section className="grain relative isolate -mt-16 overflow-hidden pt-16">
           <div
-            className="absolute -right-32 -top-20 -z-10 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
-            style={{ background: "radial-gradient(circle, #e5a03a 0%, #c4441c 50%, transparent 72%)" }}
+            className="absolute -right-40 -top-32 -z-10 h-[600px] w-[600px] rounded-full opacity-45 blur-3xl"
+            style={{ background: "radial-gradient(circle, #6f8dff 0%, #2747d8 40%, transparent 70%)" }}
+            aria-hidden="true"
+          />
+          <div
+            className="absolute right-[18%] top-[10%] -z-10 h-[460px] w-[460px] rounded-full opacity-40 blur-3xl"
+            style={{ background: "radial-gradient(circle, #ffb15c 0%, #ea5420 45%, transparent 72%)" }}
             aria-hidden="true"
           />
           <div className="mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:px-10">
@@ -50,31 +61,23 @@ export default function DivisionPage({
                   </h1>
                 </Reveal>
                 <Reveal delay={0.1}>
-                  <p className="display mt-10 max-w-3xl text-3xl text-ink-soft sm:text-4xl">{d.lede}</p>
+                  <p className="display mt-10 max-w-3xl text-3xl text-ink-soft sm:text-5xl">
+                    {d.lede} <span className="italic text-sindoor">{d.ledeEm}</span>
+                  </p>
                 </Reveal>
               </div>
 
               <Reveal delay={0.15} className="lg:col-span-4">
                 <div className="relative mx-auto aspect-square w-full max-w-sm">
                   <Mandala className="animate-spin-slow absolute inset-0 text-ink/10" />
-                  <DivisionGlyph slug={d.slug} className="absolute inset-[22%] text-sindoor" />
+                  <DivisionGlyph slug={d.slug} className="absolute inset-[22%] text-blue" />
                 </div>
               </Reveal>
             </div>
           </div>
         </section>
 
-        {/* Metrics */}
-        <section className="border-y border-ink bg-ink text-paper">
-          <dl className="mx-auto grid max-w-7xl divide-y divide-paper/10 px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6 lg:px-10">
-            {d.metrics.map((m) => (
-              <div key={m.label} className="flex flex-col-reverse py-8 sm:px-8 sm:first:pl-0">
-                <dt className="eyebrow text-paper/50">{m.label}</dt>
-                <dd className="display mt-2 text-4xl text-marigold sm:text-5xl">{m.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        <MotifBand slug={d.slug} />
 
         {/* Plan */}
         <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
@@ -88,27 +91,18 @@ export default function DivisionPage({
                   </p>
                 </Reveal>
               ))}
-              {live && (
-                <a
-                  href={CRM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-sindoor"
-                >
-                  Launch Bloomgard CRM
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-              )}
             </div>
           </div>
         </section>
 
+        {hasProduct && <CrmShowcase index="02" />}
+
         {/* Pillars */}
-        <section className="border-t border-line bg-paper">
+        <section className="border-t border-line bg-gradient-to-b from-sky/60 to-paper">
           <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
             <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
               <div>
-                <p className="eyebrow text-ink-mute">(02) Pillars</p>
+                <p className="eyebrow text-ink-mute">({pillarsIndex}) Pillars</p>
                 <h2 className="display mt-4 text-5xl sm:text-6xl">
                   What we&apos;re <span className="italic">building</span>
                 </h2>
@@ -117,7 +111,7 @@ export default function DivisionPage({
             <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
               {d.pillars.map((p, idx) => (
                 <Reveal key={p.title} delay={idx * 0.08} className="h-full">
-                  <div className="flex h-full flex-col bg-ivory p-8 sm:p-10">
+                  <div className="flex h-full flex-col bg-paper p-8 sm:p-10">
                     <span className="eyebrow text-ink-mute">
                       {d.index}.{idx + 1}
                     </span>
@@ -128,16 +122,37 @@ export default function DivisionPage({
               ))}
             </div>
 
-            <div className="mt-16 flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-ivory p-8 sm:flex-row sm:items-center sm:p-10">
+            <div className="mt-16 flex flex-col items-start justify-between gap-6 rounded-2xl bg-gradient-to-br from-neel to-blue p-8 text-paper sm:flex-row sm:items-center sm:p-10">
               <p className="display text-3xl">
                 Want to build {d.name} with us?
               </p>
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=Bloomgard%20${encodeURIComponent(d.name)}`}
-                className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-ink/15 px-6 py-3 text-sm font-medium transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+                className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-marigold"
               >
                 Get in touch <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision */}
+        <section className="relative isolate overflow-hidden bg-[linear-gradient(160deg,#0e1430_0%,#18214a_45%,#2747d8_115%)] text-paper">
+          <div className="jaali absolute inset-0 -z-10" aria-hidden="true" />
+          <Mandala className="animate-spin-slow absolute -right-64 top-1/2 -z-10 w-[900px] max-w-none -translate-y-1/2 text-marigold/[0.12]" />
+          <div className="mx-auto max-w-7xl px-4 py-28 sm:px-6 sm:py-36 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-12">
+              <p className="eyebrow text-marigold lg:col-span-3">({visionIndex}) Vision</p>
+              <div className="lg:col-span-9">
+                <Reveal>
+                  <h2 className="display text-5xl sm:text-7xl">
+                    {d.vision.headline} <span className="italic text-marigold">{d.vision.headlineEm}</span>
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <p className="mt-10 max-w-2xl text-lg leading-relaxed text-paper/75 sm:text-xl">{d.vision.body}</p>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>
@@ -147,7 +162,7 @@ export default function DivisionPage({
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-16 sm:px-6 sm:py-24 lg:px-10">
             <div>
               <p className="eyebrow text-ink-mute">Next · Division {next.index}</p>
-              <p className="display mt-4 text-6xl transition-colors group-hover:text-sindoor sm:text-8xl">
+              <p className="display mt-4 text-6xl transition-colors group-hover:text-blue sm:text-8xl">
                 {next.name}
               </p>
             </div>

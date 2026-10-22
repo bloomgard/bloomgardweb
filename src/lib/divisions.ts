@@ -6,9 +6,10 @@ export type Division = {
   name: string;
   summary: string;
   lede: string;
+  ledeEm: string;
   body: string[];
   pillars: { title: string; body: string }[];
-  metrics: { value: string; label: string }[];
+  vision: { headline: string; headlineEm: string; body: string };
 };
 
 export const CRM_URL = "https://cma.bloomgard.co";
@@ -20,217 +21,218 @@ export const divisions: Division[] = [
     index: "01",
     name: "Enterprise",
     summary:
-      "An AI-native operating layer for large organisations, starting with our CRM, which is live today.",
-    lede: "We're building the AI tools large companies should already have, starting with a CRM that's live today.",
+      "The AI operating layer for large companies. It starts with a CRM that's already live.",
+    lede: "Your company runs on a thousand small tasks.",
+    ledeEm: "We're teaching software to do them.",
     body: [
-      "Large companies lose millions of hours every year to manual work: logging calls, chasing follow-ups, reconciling spreadsheets and scheduling across time zones.",
-      "Bloomgard CRM already captures interactions, scores leads and forecasts outcomes for teams in production. From there we're building out the rest of the enterprise stack, one system at a time.",
+      "Every large company pays the same hidden tax: hours lost to logging calls, chasing follow-ups, copying numbers between spreadsheets and booking meetings across time zones.",
+      "Bloomgard CRM is live today. It records every interaction on its own, ranks leads by how warm the conversation really is and tells you which deals will close. Scheduling and forecasting come next, built on the same AI core.",
     ],
     pillars: [
       {
-        title: "AI CRM",
-        body: "Logs every interaction automatically, scores leads from conversation sentiment and predicts close probability.",
+        title: "A CRM that takes its own notes",
+        body: "Every call, email and meeting is logged automatically. Leads are scored on what customers actually say, and every deal carries a live chance of closing.",
       },
       {
-        title: "Autonomous scheduling",
-        body: "AI agents that coordinate across time zones and teams, removing the administrative bottleneck in large organisations.",
+        title: "Calendars that sort themselves",
+        body: "AI agents find meeting times across teams and time zones, so nobody has to ask “does Thursday work?” again.",
       },
       {
-        title: "Predictive analytics",
-        body: "Live views that forecast revenue, attrition and supply-chain delays before they show up in a quarterly review.",
+        title: "See next quarter now",
+        body: "Forecasts for revenue, attrition and supply delays that arrive while there's still time to act on them.",
       },
     ],
-    metrics: [
-      { value: "Live", label: "AI CRM in production" },
-      { value: "3", label: "Core systems on the roadmap" },
-      { value: "24/7", label: "Agentic operations" },
-    ],
+    vision: {
+      headline: "An organisation that runs itself,",
+      headlineEm: "so its people can lead.",
+      body: "We see companies where software handles the coordination: the notes, the follow-ups, the scheduling and the reporting. People spend their days on judgement, relationships and ideas. Every Bloomgard Enterprise product moves work in that direction.",
+    },
   },
   {
     slug: "energy",
     index: "02",
     name: "Energy",
-    summary:
-      "Software that keeps power grids stable and speeds up the shift to solar, wind and hydro.",
-    lede: "Keeping power grids stable and well tuned as more of the supply comes from renewables.",
+    summary: "AI that keeps the lights on while the grid goes green.",
+    lede: "The grid is going green.",
+    ledeEm: "We'll make sure it never goes dark.",
     body: [
-      "A modern power plant is very complex. When a critical turbine fails, millions of people lose power. Bloomgard Energy will watch millions of signals across renewable infrastructure in real time.",
-      "Predictive maintenance will warn engineers weeks before a machine fails, and grid-aware dispatch will make room for more solar, wind and hydro on the grid.",
+      "Sun and wind don't keep office hours. As more of India's power comes from renewables, grids must balance supply that rises and falls by the minute, and a single failed turbine can black out a city.",
+      "Bloomgard Energy will listen to every turbine, panel and substation at once. It will hear a fault weeks before it happens, move load before demand peaks and save the afternoon sun for the evening rush.",
     ],
     pillars: [
       {
-        title: "Predictive maintenance",
-        body: "Acoustic and thermal sensing, read by AI, to catch micro-fractures in turbines before they fail.",
+        title: "Hear failures coming",
+        body: "Acoustic and thermal sensing, read by AI, that spots hairline cracks in a turbine weeks before they turn into outages.",
       },
       {
-        title: "Grid load balancing",
-        body: "Spreading renewable load across cities so the grid holds through peaks like summer heatwaves.",
+        title: "A grid that balances itself",
+        body: "Load shifted across cities in real time, so a May heatwave stays an inconvenience instead of a blackout.",
       },
       {
-        title: "Renewable storage routing",
-        body: "Storing surplus solar and wind in battery banks and releasing it when demand is highest.",
+        title: "Sunshine after sunset",
+        body: "Surplus solar and wind stored in batteries and released exactly when demand spikes.",
       },
     ],
-    metrics: [
-      { value: "Real-time", label: "Grid telemetry" },
-      { value: "Weeks", label: "Of early failure warning" },
-      { value: "Clean-first", label: "Dispatch logic" },
-    ],
+    vision: {
+      headline: "Clean power,",
+      headlineEm: "as dependable as sunrise.",
+      body: "We picture an India where every home and factory runs on renewable energy that never flickers. A grid that predicts its own failures, balances itself and saves the sun for the night is how we get there.",
+    },
   },
   {
     slug: "data",
     index: "03",
     name: "Data",
-    summary:
-      "Autonomous control for data centres: cooling, traffic routing and uptime, run by AI.",
-    lede: "Making data centres smarter, cooler and very hard to take down.",
+    summary: "Self-driving data centres: cooler, cheaper and very hard to knock offline.",
+    lede: "Data centres run hot.",
+    ledeEm: "Ours will think cool.",
     body: [
-      "The internet runs on huge buildings full of servers that produce intense heat and use vast amounts of power. When they fail, commerce stops.",
-      "Bloomgard Data will manage cooling physics automatically. It will tune liquid-cooling valves continuously and move traffic in milliseconds, so hardware never overheats and services stay up.",
+      "Every UPI payment, video call and AI prompt lands in a building full of servers that burn power and throw off heat. When one of those buildings stumbles, the whole internet feels it.",
+      "Bloomgard Data will run that building like an autopilot. It will tune cooling rack by rack, steer traffic away from trouble in milliseconds and save the heaviest work for when clean power is cheapest.",
     ],
     pillars: [
       {
-        title: "Thermal automation",
-        body: "HVAC and liquid-cooling control driven by live CPU temperatures across thousands of racks.",
+        title: "Cooling with a brain",
+        body: "Liquid cooling and airflow adjusted continuously from live chip temperatures across thousands of racks.",
       },
       {
-        title: "Uptime assurance",
-        body: "Sub-millisecond failover that detects hardware faults and moves workloads without disruption.",
+        title: "Failover in a blink",
+        body: "Faults detected and workloads moved in under a millisecond, before anyone notices something went wrong.",
       },
       {
-        title: "Energy-aware compute",
-        body: "Scheduling heavy compute for times when renewable power is cheap and plentiful.",
+        title: "Compute when the sun shines",
+        body: "Heavy jobs scheduled for the hours when renewable power is plentiful and cheap.",
       },
     ],
-    metrics: [
-      { value: "<1ms", label: "Target failover" },
-      { value: "1000s", label: "Racks per deployment" },
-      { value: "Zero", label: "Downtime as the design goal" },
-    ],
+    vision: {
+      headline: "Infrastructure you never",
+      headlineEm: "have to think about.",
+      body: "We want data centres that cool themselves, heal themselves and follow the cleanest power available, so the digital services a billion people rely on simply stay on.",
+    },
   },
   {
     slug: "qntm",
     index: "04",
     name: "QNTM",
-    summary:
-      "Cloud quantum infrastructure in India, run alongside our AI systems.",
-    lede: "Bringing commercial quantum computing to the cloud, built in India and run alongside AI.",
+    summary: "India's quantum cloud, working hand in hand with AI.",
+    lede: "Some problems are too big for ordinary computers.",
+    ledeEm: "We're building India's quantum cloud for them.",
     body: [
-      "Classical computers are reaching their physical limits. For the hardest problems, such as molecular simulation or global supply-chain optimisation, they're simply too slow.",
-      "We're building the foundations of cloud quantum computing in India. AI models will handle qubit error correction and tune quantum gates on the fly, and those gains will feed into every other Bloomgard division.",
+      "Designing a new drug, routing a nation's freight or stress-testing a vast portfolio can stall even the fastest classical machines. Quantum computers attack these problems in a fundamentally different way.",
+      "Bloomgard QNTM will bring that power to the cloud, from India. AI will keep fragile qubits stable and tune quantum circuits on the fly, and every other Bloomgard division will be able to call on it.",
     ],
     pillars: [
       {
-        title: "Quantum cloud APIs",
-        body: "Interfaces that let ordinary enterprise AI hand its hardest calculations to quantum processors.",
+        title: "Quantum on tap",
+        body: "Simple APIs that let everyday enterprise software hand its hardest maths to a quantum processor.",
       },
       {
-        title: "AI qubit management",
-        body: "Neural networks that predict and suppress decoherence, so computations come out far more accurate.",
+        title: "AI that steadies qubits",
+        body: "Neural networks that predict and cancel decoherence, so the answers come back accurate.",
       },
       {
-        title: "Financial acceleration",
-        body: "Quantum Monte Carlo that runs millions of portfolio simulations in seconds.",
+        title: "A million futures in seconds",
+        body: "Quantum Monte Carlo that runs a million portfolio scenarios while you wait.",
       },
     ],
-    metrics: [
-      { value: "India", label: "Sovereign quantum cloud" },
-      { value: "AI × Q", label: "Hybrid pipelines" },
-      { value: "10⁶", label: "Simulations, in seconds" },
-    ],
+    vision: {
+      headline: "World-class quantum computing,",
+      headlineEm: "built and served from India.",
+      body: "We see Indian researchers, banks and hospitals using quantum computers as easily as they use the cloud today, on infrastructure designed here and run hand in hand with AI.",
+    },
   },
   {
     slug: "finance",
     index: "05",
     name: "Finance",
-    summary:
-      "AI for banks and institutions: fraud detection, compliance and automated operations.",
-    lede: "Making institutional banking faster, safer and largely automated.",
+    summary: "AI for banks: stop fraud, stay compliant and put the back office on autopilot.",
+    lede: "Money moves in milliseconds.",
+    ledeEm: "So should its protection.",
     body: [
-      "Global banks process millions of transactions a day. At that scale, human review can't reliably catch sophisticated fraud or keep up with compliance.",
-      "We're building a financial operating system that checks every transaction as it happens, stops fraud before money moves and handles the routine work that slows banks down.",
+      "India makes billions of digital payments every month. No team of people can watch every one of them, spot every new fraud pattern and keep pace with every change in the rulebook.",
+      "Bloomgard Finance will. It will check each transaction as it happens, stop suspicious transfers before the money leaves, audit every flow against regulation and take routine work off bankers' desks.",
     ],
     pillars: [
       {
-        title: "Real-time fraud defence",
-        body: "Deep models that read behavioural biometrics and transaction history to block unauthorised transfers.",
+        title: "Fraud stopped mid-flight",
+        body: "Models that read behaviour and transaction history together, blocking unauthorised transfers before they settle.",
       },
       {
-        title: "Algorithmic compliance",
-        body: "Continuous checks of financial flows against changing international regulation.",
+        title: "Compliance that never sleeps",
+        body: "Every flow checked continuously against changing Indian and international regulation.",
       },
       {
-        title: "Market intelligence",
-        body: "Models that combine global news sentiment with market data for institutional decisions.",
+        title: "Signal from the noise",
+        body: "Market data and global news distilled into insight institutions can act on.",
       },
     ],
-    metrics: [
-      { value: "Millions", label: "Of daily transactions" },
-      { value: "Real-time", label: "Fraud interdiction" },
-      { value: "Always-on", label: "Regulatory audit" },
-    ],
+    vision: {
+      headline: "A financial system where",
+      headlineEm: "trust is automatic.",
+      body: "We imagine every payment checked, every rule followed and every customer protected without slowing anything down, so banks can spend their energy on serving people instead of policing transactions.",
+    },
   },
   {
     slug: "education",
     index: "06",
     name: "Education",
-    summary:
-      "Personal AI tutors and teaching tools, built for every learner in every language.",
-    lede: "Giving every student a patient, personal tutor, and every teacher more time to teach.",
+    summary: "A patient personal tutor for every student, in the language they think in.",
+    lede: "Every child deserves a great teacher.",
+    ledeEm: "Every teacher deserves a tireless assistant.",
     body: [
-      "India has the world's largest student population, yet a single teacher is often responsible for dozens of learners at very different levels. Most students never get one-to-one attention.",
-      "Bloomgard Education will build AI tutors that adapt to each learner's pace and language, and give teachers tools that take on grading, planning and reporting, so classrooms can focus on understanding.",
+      "India has around 250 million school students, and one teacher often faces a room of forty, each learning at a different pace. Most students never get one-to-one help.",
+      "Bloomgard Education will give every learner a tutor that adapts to how they learn, in the language they think in, and give every teacher hours back from grading, planning and paperwork.",
     ],
     pillars: [
       {
-        title: "Adaptive tutoring",
-        body: "AI tutors that adjust explanations, pace and practice to each student, in the language they think in.",
+        title: "A tutor in every pocket",
+        body: "Explanations, practice and pace that adjust to each student, in Hindi, Marathi, Tamil, English and more.",
       },
       {
-        title: "Teacher co-pilot",
-        body: "Lesson planning, grading and progress reports handled automatically, giving teachers hours back each week.",
+        title: "Teachers get their evenings back",
+        body: "Lesson plans, grading and progress reports handled automatically.",
       },
       {
-        title: "Skills for work",
-        body: "Learning paths that connect what students study to the skills employers need, with verifiable credentials.",
+        title: "From classroom to career",
+        body: "Learning paths that link what students study to the skills employers hire for, with credentials they can prove.",
       },
     ],
-    metrics: [
-      { value: "1:1", label: "Attention for every learner" },
-      { value: "Multilingual", label: "From day one" },
-      { value: "Hours", label: "Returned to teachers weekly" },
-    ],
+    vision: {
+      headline: "Every learner, in every language,",
+      headlineEm: "with a world-class teacher.",
+      body: "We see a country where a child's postcode and mother tongue no longer decide the quality of their education, and where teachers are free to do what only teachers can: inspire.",
+    },
   },
   {
     slug: "life",
     index: "07",
     name: "Life",
-    summary:
-      "AI for healthcare and life sciences: faster diagnosis, smarter hospitals and new medicines.",
-    lede: "Using AI to help people live longer, healthier lives, from diagnosis to discovery.",
+    summary: "AI for healthcare: earlier diagnosis, smoother hospitals and faster medicines.",
+    lede: "Earlier answers. Shorter queues.",
+    ledeEm: "Longer, healthier lives.",
     body: [
-      "Healthcare systems everywhere are stretched. Doctors spend hours on paperwork, diagnoses arrive late, and new medicines take more than a decade to reach patients.",
-      "Bloomgard Life will build AI that helps clinicians read scans and records faster, keeps hospitals running smoothly and speeds up the search for new treatments, always with a doctor in the loop.",
+      "Doctors spend hours on paperwork, patients wait days for a diagnosis, and a new medicine can take more than a decade to reach a pharmacy shelf.",
+      "Bloomgard Life will help clinicians read scans and records faster, keep beds, staff and supplies in step with demand, and narrow years of laboratory search into a shortlist worth testing. A doctor stays in charge of every decision.",
     ],
     pillars: [
       {
-        title: "Clinical intelligence",
-        body: "Models that help clinicians read scans, labs and records, flagging risks early and supporting faster diagnosis.",
+        title: "A second pair of eyes",
+        body: "AI that reads scans, labs and records alongside clinicians and flags risks earlier.",
       },
       {
-        title: "Hospital operations",
-        body: "Forecasting beds, staff and supplies so hospitals can treat more patients with less waiting.",
+        title: "Hospitals that flow",
+        body: "Beds, staff and supplies forecast ahead of demand, so more patients are seen sooner.",
       },
       {
-        title: "Drug discovery",
-        body: "AI-guided molecular search that narrows years of laboratory work into focused, testable candidates.",
+        title: "Medicines, faster",
+        body: "AI-guided molecular search that turns years of trial and error into a focused set of candidates.",
       },
     ],
-    metrics: [
-      { value: "Earlier", label: "Detection and diagnosis" },
-      { value: "Doctor-led", label: "AI that assists, never replaces" },
-      { value: "Years", label: "Saved in discovery" },
-    ],
+    vision: {
+      headline: "Healthcare that sees trouble",
+      headlineEm: "before it arrives.",
+      body: "We picture doctors with more time for patients, hospitals without crowded waiting rooms and medicines that reach people years sooner, with AI working quietly behind every clinician.",
+    },
   },
 ];
 

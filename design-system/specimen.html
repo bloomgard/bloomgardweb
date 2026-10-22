@@ -31,7 +31,8 @@
   .hero { position: relative; overflow: hidden; }
   .hero .wrap { padding-top: var(--space-24); padding-bottom: var(--space-16); display: grid; gap: var(--space-8); }
   .hero-art { position: absolute; right: -220px; top: 50%; width: 720px; max-width: none; transform: translateY(-50%); color: var(--ink); opacity: 0.12; z-index: -1; pointer-events: none; }
-  .hero-glow { position: absolute; right: -160px; top: -40px; width: 560px; height: 560px; border-radius: 50%; filter: blur(64px); opacity: 0.45; z-index: -1; background: radial-gradient(circle, var(--marigold) 0%, var(--sindoor) 45%, transparent 70%); }
+  .hero-glow { position: absolute; right: -160px; top: -60px; width: 600px; height: 600px; border-radius: 50%; filter: blur(64px); opacity: 0.5; z-index: -1; background: var(--glow-blue); }
+  .hero-glow--orange { right: 260px; top: 160px; width: 480px; height: 480px; opacity: 0.42; background: var(--glow-orange); }
   .hero h1 { max-width: 14ch; }
   @media (max-width: 767px) { .hero h1 { font-size: 56px; } }
   .registers { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 820px; }
@@ -42,7 +43,7 @@
   .block-head p { margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 26px; }
 
   .swatches { display: grid; gap: 1px; grid-template-columns: repeat(2, 1fr); background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
-  @media (min-width: 720px) { .swatches { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 720px) { .swatches { grid-template-columns: repeat(5, 1fr); } }
   .swatch { background: var(--surface); display: flex; flex-direction: column; min-width: 0; }
   .swatch .chip { height: 88px; }
   .swatch .meta { padding: 12px; display: grid; gap: 2px; }
@@ -133,6 +134,7 @@
 
 <header class="hero j-grain">
   <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow--orange" aria-hidden="true"></div>
   <img class="hero-art j-spin-slow" src="assets/motifs/mandala-inline.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <span class="j-eyebrow">Bloomgard design language</span>
@@ -149,13 +151,15 @@
   <div class="wrap">
     <div class="block-head">
       <span class="j-eyebrow">Colour</span>
-      <h2 class="j-display-m">Eight colours from Indian <em>materials.</em></h2>
-      <p>The brand palette never changes. Interfaces use the role tokens beneath it, which switch between the Kora (light) and Raat (dark) themes.</p>
+      <h2 class="j-display-m">White, blue, orange, <em>black.</em></h2>
+      <p>Four main colours named for Indian materials, with marigold, indigo, peacock and lotus in support. Interfaces use the role tokens beneath them, which switch between the Kora (light) and Raat (dark) themes.</p>
     </div>
     <div class="swatches">
-      <div class="swatch"><div class="chip" style="background:var(--kora)"></div><div class="meta"><b>Kora</b><span class="j-data">#f4efe4</span><span class="j-caption">Raw cotton. Canvas.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--kora);box-shadow:inset 0 -1px 0 var(--line)"></div><div class="meta"><b>Kora</b><span class="j-data">#fbfaf7</span><span class="j-caption">Whitewash. Canvas.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--neelam)"></div><div class="meta"><b>Neelam</b><span class="j-data">#2747d8</span><span class="j-caption">Sapphire. The blue.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sindoor)"></div><div class="meta"><b>Sindoor</b><span class="j-data">#ea5420</span><span class="j-caption">Vermilion. The orange.</span></div></div>
       <div class="swatch"><div class="chip" style="background:var(--kajal)"></div><div class="meta"><b>Kajal</b><span class="j-data">#15120e</span><span class="j-caption">Kohl. Ink and primary.</span></div></div>
-      <div class="swatch"><div class="chip" style="background:var(--sindoor)"></div><div class="meta"><b>Sindoor</b><span class="j-data">#c4441c</span><span class="j-caption">Vermilion. The accent.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--akash)"></div><div class="meta"><b>Akash</b><span class="j-data">#e8eeff</span><span class="j-caption">Sky. Blue washes.</span></div></div>
       <div class="swatch"><div class="chip" style="background:var(--marigold)"></div><div class="meta"><b>Marigold</b><span class="j-data">#e5a03a</span><span class="j-caption">On dark only.</span></div></div>
       <div class="swatch"><div class="chip" style="background:var(--neel)"></div><div class="meta"><b>Neel</b><span class="j-data">#18214a</span><span class="j-caption">Indigo. Inverse bands.</span></div></div>
       <div class="swatch"><div class="chip" style="background:var(--neel-deep)"></div><div class="meta"><b>Neel deep</b><span class="j-data">#0e1430</span><span class="j-caption">Footers.</span></div></div>
@@ -343,7 +347,7 @@
   const roles = [
     ['canvas', 'Page background'], ['surface', 'Grouped content'], ['surface-raised', 'Inputs, tables, popovers'],
     ['line', 'Dividers, card borders'], ['line-strong', 'Control borders'], ['ink', 'Body text'], ['ink-soft', 'Secondary text'],
-    ['ink-mute', 'Decorative only'], ['primary', 'Primary button'], ['accent', 'One emphasis per view'], ['accent-text', 'Accent words, links'],
+    ['ink-mute', 'Decorative only'], ['primary', 'Primary button'], ['accent', 'One emphasis per view'], ['accent-text', 'Accent words, links'], ['brand-blue', 'Blue moments'],
     ['focus', 'Focus ring'], ['success', 'Success'], ['warning', 'Warning'], ['danger', 'Danger'], ['info', 'Info'],
   ];
   for (const [id, name] of [['roles-light', 'Kora · light'], ['roles-dark', 'Raat · dark']]) {

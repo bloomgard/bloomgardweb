@@ -52,8 +52,13 @@ export default function Home() {
       {/* Hero */}
       <section className="grain relative isolate -mt-16 overflow-hidden pt-16">
         <div
-          className="absolute -right-56 top-[55%] -z-10 h-[460px] w-[460px] rounded-full opacity-45 blur-3xl sm:-right-20 sm:top-10 sm:h-[620px] sm:w-[620px] sm:opacity-60"
-          style={{ background: "radial-gradient(circle, #e5a03a 0%, #c4441c 45%, transparent 70%)" }}
+          className="absolute -right-56 top-[55%] -z-10 h-[460px] w-[460px] rounded-full opacity-45 blur-3xl sm:-right-20 sm:top-10 sm:h-[640px] sm:w-[640px] sm:opacity-50"
+          style={{ background: "radial-gradient(circle, #6f8dff 0%, #2747d8 40%, transparent 70%)" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute right-[24%] top-[34%] -z-10 hidden h-[520px] w-[520px] rounded-full opacity-45 blur-3xl sm:block"
+          style={{ background: "radial-gradient(circle, #ffb15c 0%, #ea5420 45%, transparent 72%)" }}
           aria-hidden="true"
         />
         <Mandala className="animate-spin-slow absolute -right-72 top-[78%] -z-10 w-[620px] max-w-none -translate-y-1/2 text-ink/[0.12] sm:-right-40 sm:top-1/2 sm:w-[760px] lg:-right-24 lg:w-[880px]" />
@@ -155,11 +160,11 @@ export default function Home() {
                     href={`/${d.slug}`}
                     className="group relative grid grid-cols-12 items-center gap-4 py-8 transition-colors sm:py-10"
                   >
-                    <span className="absolute inset-y-0 -left-4 -right-4 -z-10 origin-bottom scale-y-0 bg-paper transition-transform duration-500 ease-out group-hover:scale-y-100 sm:-left-6 sm:-right-6" />
+                    <span className="absolute inset-y-0 -left-4 -right-4 -z-10 origin-bottom scale-y-0 bg-sky/70 transition-transform duration-500 ease-out group-hover:scale-y-100 sm:-left-6 sm:-right-6" />
                     <span className="eyebrow col-span-2 text-ink-mute sm:col-span-1">{d.index}</span>
                     <DivisionGlyph
                       slug={d.slug}
-                      className="col-span-2 hidden h-16 w-16 text-ink/70 transition-all duration-500 group-hover:rotate-45 group-hover:text-sindoor sm:block lg:col-span-1"
+                      className="col-span-2 hidden h-16 w-16 text-ink/70 transition-all duration-500 group-hover:rotate-45 group-hover:text-blue sm:block lg:col-span-1"
                     />
                     <div className="col-span-10 sm:col-span-6 lg:col-span-4">
                       <h3 className="display text-4xl sm:text-5xl">{d.name}</h3>
@@ -196,7 +201,7 @@ export default function Home() {
         </section>
 
         {/* Vision */}
-        <section id="vision" className="relative isolate overflow-hidden bg-neel text-paper">
+        <section id="vision" className="relative isolate overflow-hidden bg-[linear-gradient(160deg,#0e1430_0%,#18214a_45%,#2747d8_115%)] text-paper">
           <div className="jaali absolute inset-0 -z-10" aria-hidden="true" />
           <Mandala className="animate-spin-slow absolute left-1/2 top-1/2 -z-10 w-[1100px] max-w-none -translate-x-1/2 -translate-y-1/2 text-marigold/[0.12]" />
           <div className="mx-auto max-w-5xl px-4 py-28 text-center sm:px-6 sm:py-40 lg:px-10">
@@ -235,7 +240,7 @@ export default function Home() {
               href={CRM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-3xl bg-ink p-8 text-paper sm:p-12"
+              className="group relative overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#15120e_0%,#18214a_60%,#2747d8_130%)] p-8 text-paper sm:p-12"
             >
               <DivisionGlyph
                 slug="enterprise"
