@@ -1,0 +1,188 @@
+/* Bloomgard Jaali — design tokens.
+   Light ("Kora") is the default. Dark ("Raat") applies with data-theme="dark",
+   or automatically from the OS unless data-theme="light" is set. */
+
+:root,
+[data-theme="light"] {
+  /* Brand palette: fixed values, never themed. */
+  --kora: #f4efe4;
+  --kora-light: #faf7f0;
+  --kora-line: #ddd3c0;
+  --kajal: #15120e;
+  --kajal-soft: #5a534a;
+  --kajal-mute: #8c8478;
+  --sindoor: #c4441c;
+  --marigold: #e5a03a;
+  --neel: #18214a;
+  --neel-deep: #0e1430;
+  --peacock: #0f6e6a;
+  --lotus: #b8476d;
+
+  /* Surfaces */
+  --canvas: var(--kora);
+  --surface: var(--kora-light);
+  --surface-raised: #fffdf8;
+  --surface-inverse: var(--neel);
+  --surface-ink: var(--kajal);
+  --line: var(--kora-line);
+  --line-strong: #8a7f6b;
+
+  /* Text */
+  --ink: var(--kajal);
+  --ink-soft: var(--kajal-soft);
+  --ink-mute: var(--kajal-mute);
+  --ink-inverse: var(--kora-light);
+
+  /* Action and accent */
+  --primary: var(--kajal);
+  --on-primary: var(--kora-light);
+  --accent: var(--sindoor);
+  --accent-text: #a8380f;
+  --on-accent: var(--kora-light);
+  --accent-soft: #f6e0d4;
+  --highlight: var(--marigold);
+  --focus: var(--neel);
+
+  /* Status: always paired with a word or icon. */
+  --success: #0e6b57;
+  --success-soft: #dcefe7;
+  --warning: #8a5300;
+  --warning-soft: #f7e7c8;
+  --danger: #a3192b;
+  --danger-soft: #f7dadc;
+  --info: #2c4a9e;
+  --info-soft: #dfe5f6;
+
+  /* Data visualisation, in series order. */
+  --data-1: var(--sindoor);
+  --data-2: var(--neel);
+  --data-3: #d08a1c;
+  --data-4: var(--peacock);
+  --data-5: var(--lotus);
+  --data-6: #7a6f5c;
+
+  --shadow-pop: 0 1px 2px rgba(21, 18, 14, 0.06), 0 12px 32px -8px rgba(21, 18, 14, 0.18);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #0b0e1a;
+    --surface: #121628;
+    --surface-raised: #1a1f35;
+    --surface-inverse: #050711;
+    --surface-ink: #050711;
+    --line: #262c47;
+    --line-strong: #6670a0;
+    --ink: #f3ede1;
+    --ink-soft: #bdb5a6;
+    --ink-mute: #8d8778;
+    --ink-inverse: #f3ede1;
+    --primary: #f3ede1;
+    --on-primary: var(--kajal);
+    --accent: #ec6a3f;
+    --accent-text: #f08a62;
+    --on-accent: var(--kajal);
+    --accent-soft: #3a1d14;
+    --highlight: #f0b45a;
+    --focus: #f0b45a;
+    --success: #4cc4a4;
+    --success-soft: #10302a;
+    --warning: #f0b45a;
+    --warning-soft: #352711;
+    --danger: #ff7d88;
+    --danger-soft: #3a1519;
+    --info: #93a9ff;
+    --info-soft: #1b2550;
+    --data-1: #ec6a3f;
+    --data-2: #8ea2e8;
+    --data-3: #f0b45a;
+    --data-4: #3fb5a8;
+    --data-5: #e07fa2;
+    --data-6: #b3a993;
+    --shadow-pop: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  --canvas: #0b0e1a;
+  --surface: #121628;
+  --surface-raised: #1a1f35;
+  --surface-inverse: #050711;
+  --surface-ink: #050711;
+  --line: #262c47;
+  --line-strong: #6670a0;
+  --ink: #f3ede1;
+  --ink-soft: #bdb5a6;
+  --ink-mute: #8d8778;
+  --ink-inverse: #f3ede1;
+  --primary: #f3ede1;
+  --on-primary: var(--kajal);
+  --accent: #ec6a3f;
+  --accent-text: #f08a62;
+  --on-accent: var(--kajal);
+  --accent-soft: #3a1d14;
+  --highlight: #f0b45a;
+  --focus: #f0b45a;
+  --success: #4cc4a4;
+  --success-soft: #10302a;
+  --warning: #f0b45a;
+  --warning-soft: #352711;
+  --danger: #ff7d88;
+  --danger-soft: #3a1519;
+  --info: #93a9ff;
+  --info-soft: #1b2550;
+  --data-1: #ec6a3f;
+  --data-2: #8ea2e8;
+  --data-3: #f0b45a;
+  --data-4: #3fb5a8;
+  --data-5: #e07fa2;
+  --data-6: #b3a993;
+  --shadow-pop: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+:root {
+  /* Type families: load from Google Fonts (see README). */
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-deva: "Tiro Devanagari Hindi", "Noto Serif Devanagari", serif;
+
+  /* Spacing: 4px grid. */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-reveal: 800ms;
+
+  /* Layout */
+  --content-max: 1280px;
+  --reading-max: 68ch;
+  --header-height: 64px;
+}

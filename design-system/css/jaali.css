@@ -1,0 +1,298 @@
+/* Bloomgard Jaali — base styles and components.
+   Requires tokens/tokens.css. Framework-agnostic: plain class names, prefixed j-.
+   Fonts: <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"> */
+
+/* ── Base ─────────────────────────────────────────────── */
+
+.j-root,
+body.j-root {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.j-root ::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.j-root :focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ── Type: editorial register (sites, launches, decks) ── */
+
+.j-display-xl,
+.j-display-l,
+.j-display-m,
+.j-display-s {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0;
+}
+.j-display-xl { font-size: 120px; line-height: 0.98; }
+.j-display-l { font-size: 72px; line-height: 1; }
+.j-display-m { font-size: 48px; line-height: 1.05; }
+.j-display-s { font-size: 32px; line-height: 1.15; }
+.j-display-xl em,
+.j-display-l em,
+.j-display-m em,
+.j-display-s em { font-style: italic; color: var(--accent-text); }
+
+.j-lede { font-size: 20px; line-height: 32px; color: var(--ink-soft); margin: 0; }
+
+.j-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 16px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ── Type: product register (apps, dashboards) ────────── */
+
+.j-title { font-family: var(--font-display); font-size: 32px; line-height: 36px; letter-spacing: -0.01em; font-weight: 400; margin: 0; }
+.j-heading { font-size: 18px; line-height: 26px; font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+.j-subheading { font-size: 15px; line-height: 22px; font-weight: 500; margin: 0; }
+.j-body { font-size: 14px; line-height: 20px; }
+.j-body-sm { font-size: 13px; line-height: 18px; }
+.j-caption { font-size: 12px; line-height: 16px; color: var(--ink-soft); }
+.j-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.j-data { font-family: var(--font-mono); font-size: 13px; line-height: 18px; font-variant-numeric: tabular-nums; }
+.j-num { font-variant-numeric: tabular-nums; }
+
+/* ── Button ───────────────────────────────────────────── */
+
+.j-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font: 500 13px/1 var(--font-sans);
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+.j-btn svg { width: 16px; height: 16px; flex: none; }
+.j-btn:disabled,
+.j-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+
+.j-btn--primary { background: var(--primary); color: var(--on-primary); }
+.j-btn--primary:hover:not(:disabled) { background: var(--accent); color: var(--on-accent); }
+
+.j-btn--accent { background: var(--accent); color: var(--on-accent); }
+.j-btn--accent:hover:not(:disabled) { background: var(--primary); color: var(--on-primary); }
+
+.j-btn--secondary { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.j-btn--secondary:hover:not(:disabled) { border-color: var(--ink); }
+
+.j-btn--ghost { background: transparent; color: var(--ink-soft); }
+.j-btn--ghost:hover:not(:disabled) { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+
+.j-btn--danger { background: var(--danger); color: var(--surface-raised); }
+
+.j-btn--sm { height: 28px; padding: 0 var(--space-3); font-size: 12px; }
+.j-btn--lg { height: 48px; padding: 0 var(--space-6); font-size: 14px; }
+.j-btn--icon { width: 36px; padding: 0; }
+
+/* ── Field (input, select, textarea) ──────────────────── */
+
+.j-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.j-field__label { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink); }
+.j-field__hint { font-size: 12px; line-height: 16px; color: var(--ink-soft); }
+.j-field__error { font-size: 12px; line-height: 16px; color: var(--danger); }
+
+.j-input,
+.j-select,
+.j-textarea {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+  padding: 0 var(--space-3);
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  font: 400 14px/20px var(--font-sans);
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+}
+.j-textarea { height: auto; min-height: 88px; padding: var(--space-2) var(--space-3); resize: vertical; }
+.j-input::placeholder,
+.j-textarea::placeholder { color: var(--ink-mute); }
+.j-input:hover,
+.j-select:hover,
+.j-textarea:hover { border-color: var(--ink-soft); }
+.j-input:focus,
+.j-select:focus,
+.j-textarea:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 22%, transparent); }
+.j-input[aria-invalid="true"] { border-color: var(--danger); }
+
+/* ── Badge ────────────────────────────────────────────── */
+
+.j-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  font: 500 11px/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+.j-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.j-badge--plain::before { display: none; }
+.j-badge--accent { background: var(--accent-soft); color: var(--accent-text); border-color: transparent; }
+.j-badge--success { background: var(--success-soft); color: var(--success); border-color: transparent; }
+.j-badge--warning { background: var(--warning-soft); color: var(--warning); border-color: transparent; }
+.j-badge--danger { background: var(--danger-soft); color: var(--danger); border-color: transparent; }
+.j-badge--info { background: var(--info-soft); color: var(--info); border-color: transparent; }
+
+/* ── Card ─────────────────────────────────────────────── */
+
+.j-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  min-width: 0;
+}
+.j-card--raised { background: var(--surface-raised); }
+.j-card--ink { background: var(--surface-ink); color: var(--ink-inverse); border-color: transparent; }
+.j-card--interactive { transition: border-color var(--duration-base) var(--ease-out); }
+.j-card--interactive:hover { border-color: var(--ink-soft); }
+
+/* Panel grid: cards sharing hairline gutters, as on the website's principle rows. */
+.j-panels {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.j-panels > * { background: var(--surface); padding: var(--space-8); min-width: 0; }
+
+/* ── Metric ───────────────────────────────────────────── */
+
+.j-metric { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.j-metric__value { font-family: var(--font-display); font-size: 40px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.j-metric__delta { font: 500 12px/16px var(--font-mono); font-variant-numeric: tabular-nums; }
+.j-metric__delta--up { color: var(--success); }
+.j-metric__delta--down { color: var(--danger); }
+
+/* ── Table ────────────────────────────────────────────── */
+
+.j-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-raised); }
+.j-table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 18px; }
+.j-table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font: 500 11px/14px var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.j-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--line); vertical-align: middle; }
+.j-table tr:last-child td { border-bottom: 0; }
+.j-table tbody tr:hover td { background: color-mix(in srgb, var(--ink) 3%, transparent); }
+.j-table .j-num,
+.j-table [data-align="end"] { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ── Tabs ─────────────────────────────────────────────── */
+
+.j-tabs { display: inline-flex; gap: 2px; padding: 3px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-pill); }
+.j-tab {
+  height: 28px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink-soft);
+  font: 500 13px/1 var(--font-sans);
+  cursor: pointer;
+}
+.j-tab:hover { color: var(--ink); }
+.j-tab[aria-selected="true"] { background: var(--primary); color: var(--on-primary); }
+
+/* ── Sidebar (product navigation) ─────────────────────── */
+
+.j-sidebar { display: flex; flex-direction: column; gap: var(--space-6); width: 240px; padding: var(--space-4); background: var(--surface); border-right: 1px solid var(--line); }
+.j-sidebar__brand { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2); }
+.j-sidebar__brand svg { width: 28px; height: 28px; color: var(--accent); }
+.j-sidebar__product { font-family: var(--font-display); font-size: 22px; line-height: 1; }
+.j-sidebar__group { display: flex; flex-direction: column; gap: 2px; }
+.j-sidebar__group-label { padding: 0 var(--space-3) var(--space-2); }
+.j-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 34px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-decoration: none;
+}
+.j-nav-item svg { width: 16px; height: 16px; }
+.j-nav-item:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.j-nav-item[aria-current="page"] { color: var(--ink); background: var(--surface-raised); box-shadow: inset 0 0 0 1px var(--line); }
+.j-nav-item[aria-current="page"]::after { content: ""; margin-left: auto; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* ── Motifs ───────────────────────────────────────────── */
+
+.j-grain { position: relative; isolation: isolate; }
+.j-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .j-grain::before { mix-blend-mode: screen; opacity: 0.12; }
+
+.j-jaali {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%2315120e' stroke-opacity='.06' stroke-width='1'%3E%3Cpath d='M28 0 56 28 28 56 0 28Z'/%3E%3Ccircle cx='28' cy='28' r='10'/%3E%3C/g%3E%3C/svg%3E");
+}
+.j-jaali--on-dark,
+[data-theme="dark"] .j-jaali {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='1'%3E%3Cpath d='M28 0 56 28 28 56 0 28Z'/%3E%3Ccircle cx='28' cy='28' r='10'/%3E%3Cpath d='M28 18v20M18 28h20'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.j-spin-slow { animation: j-spin 120s linear infinite; }
+@keyframes j-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .j-spin-slow { animation: none; }
+  .j-btn, .j-input, .j-select, .j-textarea, .j-card--interactive { transition: none; }
+}

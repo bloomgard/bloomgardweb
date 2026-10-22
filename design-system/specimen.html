@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloomgard Jaali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="css/jaali.css">
+<style>
+  /* Specimen layout only. Everything visual comes from tokens.css and jaali.css. */
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .wrap { max-width: var(--content-max); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  @media (min-width: 768px) { .wrap { padding-left: 40px; padding-right: 40px; } }
+
+  .topbar { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--canvas) 88%, transparent); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: var(--header-height); }
+  .topbar img { height: 22px; width: auto; display: block; }
+  .wm-dark { display: none !important; }
+  [data-theme="dark"] .wm-light { display: none !important; }
+  [data-theme="dark"] .wm-dark { display: block !important; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wm-light { display: none !important; } :root:not([data-theme="light"]) .wm-dark { display: block !important; } }
+  .toc { display: none; gap: 4px; }
+  @media (min-width: 1024px) { .toc { display: flex; } }
+  .toc a { color: var(--ink-soft); text-decoration: none; font-size: 13px; padding: 6px 10px; border-radius: var(--radius-pill); }
+  .toc a:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+
+  .hero { position: relative; overflow: hidden; }
+  .hero .wrap { padding-top: var(--space-24); padding-bottom: var(--space-16); display: grid; gap: var(--space-8); }
+  .hero-art { position: absolute; right: -220px; top: 50%; width: 720px; max-width: none; transform: translateY(-50%); color: var(--ink); opacity: 0.12; z-index: -1; pointer-events: none; }
+  .hero-glow { position: absolute; right: -160px; top: -40px; width: 560px; height: 560px; border-radius: 50%; filter: blur(64px); opacity: 0.45; z-index: -1; background: radial-gradient(circle, var(--marigold) 0%, var(--sindoor) 45%, transparent 70%); }
+  .hero h1 { max-width: 14ch; }
+  @media (max-width: 767px) { .hero h1 { font-size: 56px; } }
+  .registers { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); max-width: 820px; }
+
+  section.block { border-top: 1px solid var(--line); }
+  section.block > .wrap { padding-top: var(--space-16); padding-bottom: var(--space-16); display: grid; gap: var(--space-8); }
+  .block-head { display: grid; gap: var(--space-3); max-width: 720px; }
+  .block-head p { margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 26px; }
+
+  .swatches { display: grid; gap: 1px; grid-template-columns: repeat(2, 1fr); background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  @media (min-width: 720px) { .swatches { grid-template-columns: repeat(4, 1fr); } }
+  .swatch { background: var(--surface); display: flex; flex-direction: column; min-width: 0; }
+  .swatch .chip { height: 88px; }
+  .swatch .meta { padding: 12px; display: grid; gap: 2px; }
+  .swatch b { font-weight: 500; font-size: 13px; }
+
+  .roles { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .role-sheet { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--canvas); color: var(--ink); }
+  .role-sheet header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--surface); }
+  .role-row { display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+  .role-row:last-child { border-bottom: 0; }
+  .role-row i { width: 36px; height: 24px; border-radius: var(--radius-xs); border: 1px solid var(--line); display: block; }
+
+  .type-list { display: grid; border-top: 1px solid var(--ink); }
+  .type-row { display: grid; gap: var(--space-2) var(--space-8); grid-template-columns: 1fr; padding: var(--space-6) 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  @media (min-width: 900px) { .type-row { grid-template-columns: 200px 1fr; } }
+  .type-row .spec { display: grid; gap: 4px; }
+  .type-sample { min-width: 0; overflow-wrap: anywhere; }
+
+  [data-theme="dark"] .hero-art, [data-theme="dark"] .empty .bg { filter: invert(1); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-art { filter: invert(1); } }
+  .glyph-grid { display: grid; gap: 1px; grid-template-columns: 1fr; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  @media (min-width: 480px) { .glyph-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .glyph-grid { grid-template-columns: repeat(4, 1fr); } }
+  .glyph-cell { background: var(--surface); padding: var(--space-6); display: grid; gap: var(--space-4); justify-items: start; align-content: start; min-width: 0; }
+  .glyph-cell--new { background: var(--canvas); }
+  .construct { width: 72px; height: 72px; color: var(--ink-soft); }
+  .glyph-cell img { width: 72px; height: 72px; }
+  .glyph-cell .icon { width: 56px; height: 56px; border-radius: 13px; }
+  .glyph-cell .pair { display: flex; gap: 16px; align-items: center; }
+  [data-theme="dark"] .glyph-cell .line-glyph { filter: invert(0.93) sepia(0.2); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .glyph-cell .line-glyph { filter: invert(0.93) sepia(0.2); } }
+
+  .motifs { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .motif { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; display: grid; grid-template-rows: 200px auto; background: var(--surface); }
+  .motif .stage { position: relative; overflow: hidden; display: grid; place-items: center; }
+  .motif .meta { padding: var(--space-5); display: grid; gap: 6px; border-top: 1px solid var(--line); }
+  .motif .meta p { margin: 0; }
+
+  .comp-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .comp { display: grid; gap: var(--space-4); align-content: start; }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+
+  .screens { display: grid; gap: var(--space-6); }
+  .screen { border: 1px solid var(--line); border-radius: var(--radius-xl); overflow: hidden; background: var(--canvas); color: var(--ink); }
+  .screen-scroll { overflow-x: auto; }
+  .app { display: grid; grid-template-columns: 240px minmax(720px, 1fr); min-height: 640px; }
+  .app .j-sidebar { width: auto; }
+  .app-main { padding: var(--space-8); display: grid; gap: var(--space-6); align-content: start; background: var(--canvas); }
+  .app-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--space-4); }
+  .app-head .actions { display: flex; gap: var(--space-2); }
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .metrics > div { padding: var(--space-6); }
+  .spark { width: 100%; height: 40px; display: block; margin-top: 8px; }
+  .lead { display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 500 11px/1 var(--font-mono); background: var(--surface); border: 1px solid var(--line); color: var(--ink-soft); flex: none; }
+  .search { position: relative; }
+  .search svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--ink-soft); }
+  .search .j-input { padding-left: 34px; width: 240px; }
+  .empty { display: grid; place-items: center; text-align: center; gap: var(--space-3); padding: var(--space-12) var(--space-6); position: relative; overflow: hidden; border: 1px dashed var(--line-strong); border-radius: var(--radius-lg); }
+  .empty .bg { position: absolute; width: 520px; max-width: none; color: var(--ink); opacity: 0.07; z-index: 0; }
+  .empty > *:not(.bg) { position: relative; }
+
+  footer.end { background: var(--neel-deep); color: var(--kora-light); }
+  footer.end .wrap { padding-top: var(--space-16); padding-bottom: var(--space-12); display: grid; gap: var(--space-6); }
+  footer.end img { width: 100%; height: auto; opacity: 0.08; }
+  .ink-inv-soft { color: color-mix(in srgb, var(--kora-light) 60%, transparent); }
+</style>
+</head>
+<body class="j-root">
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="row" style="gap:12px">
+      <img class="wm-light" src="assets/logo/wordmark-kajal.png" alt="Bloomgard">
+      <img class="wm-dark" src="assets/logo/wordmark-kora.png" alt="Bloomgard">
+      <span class="j-badge j-badge--plain">Jaali · v1</span>
+    </div>
+    <nav class="toc" aria-label="Sections">
+      <a href="#colour">Colour</a><a href="#type">Type</a><a href="#identity">Identity</a><a href="#motifs">Motifs</a><a href="#components">Components</a><a href="#product">Product</a>
+    </nav>
+    <div class="j-tabs" role="tablist" aria-label="Theme">
+      <button class="j-tab" role="tab" data-set-theme="system" aria-selected="true">Auto</button>
+      <button class="j-tab" role="tab" data-set-theme="light" aria-selected="false">Light</button>
+      <button class="j-tab" role="tab" data-set-theme="dark" aria-selected="false">Dark</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero j-grain">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <img class="hero-art j-spin-slow" src="assets/motifs/mandala-inline.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <span class="j-eyebrow">Bloomgard design language</span>
+    <h1 class="j-display-xl">Jaali. One lattice, <em>every product.</em></h1>
+    <p class="j-lede" style="max-width:40ch">A strict structure that lets light through. The tokens, type, motifs and components that make every Bloomgard surface recognisably ours, from the website to the CRM.</p>
+    <div class="registers">
+      <div class="j-card"><span class="j-label">Register 01</span><h2 class="j-heading" style="margin-top:12px">Editorial</h2><p class="j-body" style="color:var(--ink-soft);margin:6px 0 0">Websites, launches, decks, email. Serif display, kora paper, one mandala, wide space.</p></div>
+      <div class="j-card"><span class="j-label">Register 02</span><h2 class="j-heading" style="margin-top:12px">Product</h2><p class="j-body" style="color:var(--ink-soft);margin:6px 0 0">Apps people work in all day. Geist at 13–14px, dense layouts, light and dark, motifs at a whisper.</p></div>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="colour">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="j-eyebrow">Colour</span>
+      <h2 class="j-display-m">Eight colours from Indian <em>materials.</em></h2>
+      <p>The brand palette never changes. Interfaces use the role tokens beneath it, which switch between the Kora (light) and Raat (dark) themes.</p>
+    </div>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:var(--kora)"></div><div class="meta"><b>Kora</b><span class="j-data">#f4efe4</span><span class="j-caption">Raw cotton. Canvas.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--kajal)"></div><div class="meta"><b>Kajal</b><span class="j-data">#15120e</span><span class="j-caption">Kohl. Ink and primary.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--sindoor)"></div><div class="meta"><b>Sindoor</b><span class="j-data">#c4441c</span><span class="j-caption">Vermilion. The accent.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--marigold)"></div><div class="meta"><b>Marigold</b><span class="j-data">#e5a03a</span><span class="j-caption">On dark only.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--neel)"></div><div class="meta"><b>Neel</b><span class="j-data">#18214a</span><span class="j-caption">Indigo. Inverse bands.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--neel-deep)"></div><div class="meta"><b>Neel deep</b><span class="j-data">#0e1430</span><span class="j-caption">Footers.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--peacock)"></div><div class="meta"><b>Peacock</b><span class="j-data">#0f6e6a</span><span class="j-caption">Data and illustration.</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--lotus)"></div><div class="meta"><b>Lotus</b><span class="j-data">#b8476d</span><span class="j-caption">Data only.</span></div></div>
+    </div>
+    <div class="roles">
+      <div class="role-sheet" data-theme="light" id="roles-light"></div>
+      <div class="role-sheet" data-theme="dark" id="roles-dark"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="type">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="j-eyebrow">Typography</span>
+      <h2 class="j-display-m">Instrument Serif speaks. <em>Geist works.</em></h2>
+      <p>The serif carries headlines and page titles; its italic is the brand's emphasis. Geist runs the interface. Geist Mono labels things and lines up numbers.</p>
+    </div>
+    <div class="type-list">
+      <div class="type-row"><div class="spec"><span class="j-label">display-xl</span><span class="j-caption">Serif 120 / 0.98</span></div><div class="type-sample j-display-xl">Systems that <em>run the world</em></div></div>
+      <div class="type-row"><div class="spec"><span class="j-label">display-m</span><span class="j-caption">Serif 48 / 1.05</span></div><div class="type-sample j-display-m">Bringing AI and humanity closer.</div></div>
+      <div class="type-row"><div class="spec"><span class="j-label">lede</span><span class="j-caption">Sans 20 / 32</span></div><p class="type-sample j-lede">Bloomgard is an AI company from Mumbai. We build software for the systems societies depend on.</p></div>
+      <div class="type-row"><div class="spec"><span class="j-label">title</span><span class="j-caption">Serif 32 / 36 · product</span></div><div class="type-sample j-title">Pipeline</div></div>
+      <div class="type-row"><div class="spec"><span class="j-label">heading</span><span class="j-caption">Sans 18 / 26 · 500</span></div><div class="type-sample j-heading">Leads this week</div></div>
+      <div class="type-row"><div class="spec"><span class="j-label">body</span><span class="j-caption">Sans 14 / 20</span></div><div class="type-sample j-body">Assign the lead to a teammate to start the follow-up. We'll remind them if nothing happens in two days.</div></div>
+      <div class="type-row"><div class="spec"><span class="j-label">label · data</span><span class="j-caption">Mono 11 caps · Mono 13</span></div><div class="type-sample row"><span class="j-label">Deal value</span><span class="j-data">BG-20481 · ₹4,20,000</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="identity">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="j-eyebrow">Product identity</span>
+      <h2 class="j-display-m">A glyph for every <em>product.</em></h2>
+      <p>Each product gets a line mark on a 120-unit grid, drawn from Indian geometry. On its app icon the glyph sits in kora on neel, with one marigold dot.</p>
+    </div>
+    <div class="glyph-grid" id="glyphs"></div>
+  </div>
+</section>
+
+<section class="block" id="motifs">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="j-eyebrow">Motifs</span>
+      <h2 class="j-display-m">Atmosphere, used <em>once.</em></h2>
+      <p>One large motif per view. In product screens they appear only on empty states, sign-in and onboarding.</p>
+    </div>
+    <div class="motifs">
+      <div class="motif"><div class="stage j-grain" style="background:var(--kora)"><img src="assets/motifs/mandala.svg" alt="" style="width:340px;max-width:none;opacity:.14"></div><div class="meta"><span class="j-subheading">Mandala</span><p class="j-caption">Ambient art behind heroes and feature bands, 10–14% ink, partly off-canvas. May turn once every 120 seconds.</p></div></div>
+      <div class="motif"><div class="stage" style="background:var(--neel) url(assets/motifs/jaali-specimen.svg) center/336px 168px repeat"><span class="j-display-s" style="color:var(--kora-light);background:var(--neel);padding:0 12px">Lattice</span></div><div class="meta"><span class="j-subheading">Jaali</span><p class="j-caption">A 56px lattice tile over dark bands, footers and dark-theme sidebars. Shown here enlarged; in use it sits at 6–7%, felt rather than seen.</p></div></div>
+      <div class="motif"><div class="stage" style="background:var(--kora);isolation:isolate"><div style="position:absolute;width:280px;height:280px;border-radius:50%;filter:blur(48px);opacity:.55;background:radial-gradient(circle,var(--marigold) 0%,var(--sindoor) 45%,transparent 70%)"></div></div><div class="meta"><span class="j-subheading">Glow</span><p class="j-caption">One marigold-to-sindoor blur behind an editorial hero. Never in product screens.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="components">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="j-eyebrow">Components</span>
+      <h2 class="j-display-m">Plain classes, <em>any stack.</em></h2>
+      <p>Every component is a CSS class in jaali.css, so it works in React, Vue, Svelte, server templates or plain HTML.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="j-card comp"><span class="j-label">Button</span>
+        <div class="row"><button class="j-btn j-btn--primary">Create lead</button><button class="j-btn j-btn--secondary">Import</button><button class="j-btn j-btn--ghost">Cancel</button></div>
+        <div class="row"><button class="j-btn j-btn--accent j-btn--sm">Upgrade</button><button class="j-btn j-btn--danger j-btn--sm">Delete lead</button><button class="j-btn j-btn--primary j-btn--sm" disabled>Saving</button></div>
+      </div>
+      <div class="j-card comp"><span class="j-label">Field</span>
+        <label class="j-field"><span class="j-field__label">Work email</span><input class="j-input" id="spec-email" placeholder="name@company.in"><span class="j-field__hint">We send the invite here.</span></label>
+        <label class="j-field"><span class="j-field__label">GSTIN</span><input class="j-input" id="spec-gst" value="27AAAPL1234C1Z" aria-invalid="true"><span class="j-field__error">A GSTIN has 15 characters. Check the last digit.</span></label>
+      </div>
+      <div class="j-card comp"><span class="j-label">Badge</span>
+        <div class="row"><span class="j-badge j-badge--success">Won</span><span class="j-badge j-badge--warning">Stalled</span><span class="j-badge j-badge--danger">Lost</span><span class="j-badge j-badge--info">New</span><span class="j-badge j-badge--accent">Hot</span><span class="j-badge">Draft</span></div>
+        <span class="j-label" style="margin-top:8px">Tabs</span>
+        <div class="j-tabs" role="tablist"><button class="j-tab" role="tab" aria-selected="true">All</button><button class="j-tab" role="tab" aria-selected="false">Mine</button><button class="j-tab" role="tab" aria-selected="false">Unassigned</button></div>
+      </div>
+      <div class="j-card comp"><span class="j-label">Metric</span>
+        <div class="j-metric"><span class="j-label">Open pipeline</span><span class="j-metric__value">₹4.2 Cr</span><span class="j-metric__delta j-metric__delta--up">▲ 12.4% vs last month</span></div>
+      </div>
+      <div class="j-card j-card--ink comp" style="border-radius:var(--radius-xl)"><span class="j-label" style="color:var(--marigold)">Feature card · surface-ink</span>
+        <span class="j-display-s">Bloomgard CRM</span><span class="j-body-sm" style="opacity:.7">Captures every interaction, scores every lead.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="product">
+  <div class="wrap">
+    <div class="block-head">
+      <span class="j-eyebrow">In a product</span>
+      <h2 class="j-display-m">The same language, <em>at work.</em></h2>
+      <p>A sample Bloomgard CRM screen built only from the tokens and classes above, in both themes. Names and figures are examples.</p>
+    </div>
+    <div class="screens" id="screens"></div>
+  </div>
+</section>
+
+<footer class="end j-jaali--on-dark">
+  <div class="wrap">
+    <p class="j-display-m" style="margin:0">Built in Mumbai.<br><em style="color:var(--marigold)">Made for the world.</em></p>
+    <span class="j-eyebrow ink-inv-soft">Bloomgard Jaali · tokens.css · jaali.css · DESIGN.md · SKILL.md</span>
+    <img src="assets/logo/wordmark-kora.png" alt="">
+  </div>
+</footer>
+
+<template id="app-tpl">
+  <div class="screen">
+    <div class="screen-scroll">
+      <div class="app">
+        <nav class="j-sidebar" aria-label="CRM">
+          <div class="j-sidebar__brand">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><rect x="30" y="30" width="60" height="60"/><rect x="30" y="30" width="60" height="60" transform="rotate(45 60 60)"/><circle cx="60" cy="60" r="12"/></svg>
+            <span class="j-sidebar__product">CRM</span>
+          </div>
+          <div class="j-sidebar__group">
+            <span class="j-label j-sidebar__group-label">Workspace</span>
+            <a class="j-nav-item" href="#product"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>Overview</a>
+            <a class="j-nav-item" href="#product" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Leads</a>
+            <a class="j-nav-item" href="#product"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>Inbox</a>
+          </div>
+          <div class="j-sidebar__group">
+            <span class="j-label j-sidebar__group-label">Account</span>
+            <a class="j-nav-item" href="#product"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>Settings</a>
+          </div>
+        </nav>
+        <main class="app-main">
+          <div class="app-head">
+            <div><span class="j-label">Leads · Example data</span><h3 class="j-title" style="margin-top:6px">Pipeline</h3></div>
+            <div class="actions">
+              <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input class="j-input" placeholder="Search leads" aria-label="Search leads"></div>
+              <button class="j-btn j-btn--secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>Export</button>
+              <button class="j-btn j-btn--primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>Create lead</button>
+            </div>
+          </div>
+          <div class="j-panels metrics">
+            <div class="j-metric"><span class="j-label">Open pipeline</span><span class="j-metric__value">₹4.2 Cr</span><span class="j-metric__delta j-metric__delta--up">▲ 12.4%</span>
+              <svg class="spark" viewBox="0 0 200 40" preserveAspectRatio="none"><path d="M0 32 L25 30 L50 26 L75 28 L100 20 L125 18 L150 14 L175 10 L200 6 L200 40 L0 40Z" fill="var(--data-1)" fill-opacity=".12"/><path d="M0 32 L25 30 L50 26 L75 28 L100 20 L125 18 L150 14 L175 10 L200 6" fill="none" stroke="var(--data-1)" stroke-width="1.5" vector-effect="non-scaling-stroke"/><circle cx="198" cy="6" r="3" fill="var(--data-1)"/></svg>
+            </div>
+            <div class="j-metric"><span class="j-label">Won this month</span><span class="j-metric__value">38</span><span class="j-metric__delta j-metric__delta--up">▲ 6 deals</span></div>
+            <div class="j-metric"><span class="j-label">Avg. response</span><span class="j-metric__value">2h 14m</span><span class="j-metric__delta j-metric__delta--down">▼ 18 min slower</span></div>
+          </div>
+          <div class="row" style="justify-content:space-between">
+            <div class="j-tabs" role="tablist"><button class="j-tab" role="tab" aria-selected="true">All leads</button><button class="j-tab" role="tab" aria-selected="false">Mine</button><button class="j-tab" role="tab" aria-selected="false">Unassigned</button></div>
+            <span class="j-caption">Updated 4 minutes ago</span>
+          </div>
+          <div class="j-table-wrap">
+            <table class="j-table">
+              <thead><tr><th>Lead</th><th>Stage</th><th>Owner</th><th data-align="end">Value</th><th data-align="end">Score</th></tr></thead>
+              <tbody>
+                <tr><td><div class="lead"><span class="avatar">VT</span><div><div>Varma Textiles</div><div class="j-caption">Surat</div></div></div></td><td><span class="j-badge j-badge--accent">Hot</span></td><td>Priya N.</td><td class="j-num j-data">₹48,00,000</td><td class="j-num j-data">92</td></tr>
+                <tr><td><div class="lead"><span class="avatar">KL</span><div><div>Konkan Logistics</div><div class="j-caption">Ratnagiri</div></div></div></td><td><span class="j-badge j-badge--info">New</span></td><td>Arjun M.</td><td class="j-num j-data">₹12,50,000</td><td class="j-num j-data">74</td></tr>
+                <tr><td><div class="lead"><span class="avatar">SF</span><div><div>Sahyadri Foods</div><div class="j-caption">Pune</div></div></div></td><td><span class="j-badge j-badge--success">Won</span></td><td>Priya N.</td><td class="j-num j-data">₹31,20,000</td><td class="j-num j-data">88</td></tr>
+                <tr><td><div class="lead"><span class="avatar">MH</span><div><div>Meru Hospitals</div><div class="j-caption">Nagpur</div></div></div></td><td><span class="j-badge j-badge--warning">Stalled</span></td><td>Unassigned</td><td class="j-num j-data">₹8,75,000</td><td class="j-num j-data">41</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="empty">
+            <img class="bg" src="assets/motifs/mandala-inline.svg" alt="" aria-hidden="true">
+            <span class="j-title">No follow-ups due</span>
+            <span class="j-body" style="color:var(--ink-soft)">Leads that need a reply today will appear here.</span>
+            <button class="j-btn j-btn--secondary j-btn--sm">Schedule a follow-up</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  // Theme switch for the whole page.
+  const tabs = document.querySelectorAll('[data-set-theme]');
+  const setTheme = (t) => {
+    if (t === 'system') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', t);
+    tabs.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.setTheme === t)));
+    try { localStorage.setItem('jaali-theme', t); } catch (e) {}
+  };
+  tabs.forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.setTheme)));
+  try { const saved = localStorage.getItem('jaali-theme'); if (saved) setTheme(saved); } catch (e) {}
+
+  // Role token sheets, one per theme.
+  const roles = [
+    ['canvas', 'Page background'], ['surface', 'Grouped content'], ['surface-raised', 'Inputs, tables, popovers'],
+    ['line', 'Dividers, card borders'], ['line-strong', 'Control borders'], ['ink', 'Body text'], ['ink-soft', 'Secondary text'],
+    ['ink-mute', 'Decorative only'], ['primary', 'Primary button'], ['accent', 'One emphasis per view'], ['accent-text', 'Accent words, links'],
+    ['focus', 'Focus ring'], ['success', 'Success'], ['warning', 'Warning'], ['danger', 'Danger'], ['info', 'Info'],
+  ];
+  for (const [id, name] of [['roles-light', 'Kora · light'], ['roles-dark', 'Raat · dark']]) {
+    const el = document.getElementById(id);
+    el.innerHTML = `<header><span class="j-subheading">${name}</span><span class="j-label">Role tokens</span></header>` +
+      roles.map(([t, u]) => `<div class="role-row"><i style="background:var(--${t})"></i><span class="j-body-sm">${u}</span><span class="j-data" style="color:var(--ink-soft)">${t}</span></div>`).join('');
+  }
+
+  // Glyphs and app icons.
+  const products = [['enterprise', 'Enterprise'], ['energy', 'Energy'], ['data', 'Data'], ['qntm', 'QNTM'], ['finance', 'Finance'], ['education', 'Education'], ['life', 'Life']];
+  document.getElementById('glyphs').innerHTML = products.map(([s, n]) =>
+    `<div class="glyph-cell"><div class="pair"><img class="line-glyph" src="assets/glyphs/${s}.svg" alt="${n} glyph"><img class="icon" src="assets/app-icons/${s}.svg" alt="${n} app icon"></div><span class="j-subheading">Bloomgard ${n}</span></div>`).join('') +
+    `<div class="glyph-cell glyph-cell--new"><svg class="construct" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1"><rect x="0.5" y="0.5" width="119" height="119" stroke-dasharray="2 3"/><circle cx="60" cy="60" r="52"/><path d="M60 0v120M0 60h120" stroke-dasharray="2 3"/><circle cx="60" cy="60" r="3" fill="currentColor"/></svg><span class="j-subheading">Your next product</span><span class="j-caption">120 grid · 104 circle · 1.25 stroke · round caps · one idea · legible at 16px.</span></div>`;
+
+  // Product screen in both themes.
+  const tpl = document.getElementById('app-tpl');
+  for (const theme of ['light', 'dark']) {
+    const node = tpl.content.firstElementChild.cloneNode(true);
+    node.setAttribute('data-theme', theme);
+    if (theme === 'dark') node.querySelector('.j-sidebar').classList.add('j-jaali--on-dark');
+    document.getElementById('screens').appendChild(node);
+  }
+</script>
+</body>
+</html>

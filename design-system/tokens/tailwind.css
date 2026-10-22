@@ -1,0 +1,78 @@
+/* Bloomgard Jaali — Tailwind CSS v4 preset.
+   Usage, in your global stylesheet:
+     @import "tailwindcss";
+     @import "./jaali/tokens/tokens.css";
+     @import "./jaali/tokens/tailwind.css";
+   Then write bg-canvas, text-ink, border-line, font-display, rounded-lg, etc.
+   Colours follow the active theme automatically. */
+
+@theme inline {
+  --color-*: initial;
+
+  --color-kora: var(--kora);
+  --color-kajal: var(--kajal);
+  --color-sindoor: var(--sindoor);
+  --color-marigold: var(--marigold);
+  --color-neel: var(--neel);
+  --color-neel-deep: var(--neel-deep);
+  --color-peacock: var(--peacock);
+  --color-lotus: var(--lotus);
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-inverse: var(--surface-inverse);
+  --color-surface-ink: var(--surface-ink);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-ink-inverse: var(--ink-inverse);
+
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-highlight: var(--highlight);
+  --color-focus: var(--focus);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --color-data-1: var(--data-1);
+  --color-data-2: var(--data-2);
+  --color-data-3: var(--data-3);
+  --color-data-4: var(--data-4);
+  --color-data-5: var(--data-5);
+  --color-data-6: var(--data-6);
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --shadow-pop: var(--shadow-pop);
+  --ease-out: var(--ease-out);
+
+  --animate-spin-slow: spin 120s linear infinite;
+}
