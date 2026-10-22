@@ -1,250 +1,258 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BarChart3, Database, Zap, Network, Building2, Globe } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import Mandala from "@/components/Mandala";
+import DivisionGlyph from "@/components/DivisionGlyph";
+import Reveal from "@/components/Reveal";
+import MumbaiClock from "@/components/MumbaiClock";
+import { CRM_URL, divisions } from "@/lib/divisions";
+
+const principles = [
+  {
+    mark: "01",
+    title: "Infrastructure first",
+    body: "We build for power grids, data centres, banks and big organisations, where reliability matters more than novelty.",
+  },
+  {
+    mark: "02",
+    title: "Built for India's scale",
+    body: "If a system works across a billion people, it will work anywhere. We design from Mumbai for the world's most demanding environments.",
+  },
+  {
+    mark: "03",
+    title: "People at the centre",
+    body: "AI should take on the complex, the dangerous and the repetitive, so people have more time for creativity, connection and progress.",
+  },
+];
 
 export default function Home() {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Bloomgard Corporation",
-    "url": "https://bloomgard.co",
-    "logo": "https://bloomgard.co/logo.png",
-    "description": "Global enterprise optimization and AI-native erp.",
+    name: "Bloomgard Corporation",
+    url: "https://bloomgard.co",
+    logo: "https://bloomgard.co/logo.png",
+    description: "Mumbai-based AI company building AI systems for global infrastructure.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mumbai",
+      addressRegion: "Maharashtra",
+      addressCountry: "IN",
+    },
   };
 
   return (
-    <div className="w-full flex flex-col items-center bg-white">
+    <div className="flex w-full flex-col">
       <JsonLd data={orgSchema} />
-      
-      {/* Navigation */}
-      <header className="w-full bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex justify-between items-center">
-          <div className="flex items-center">
-            {/* Logo Fallback (Matches uploaded image style) */}
-            <img src="/logo.png" alt="Bloomgard Logo" className="h-12 w-auto" />
+
+      <SiteHeader />
+
+      {/* Hero */}
+      <section className="grain relative isolate -mt-16 overflow-hidden pt-16">
+        <div
+          className="absolute -right-56 top-[55%] -z-10 h-[460px] w-[460px] rounded-full opacity-45 blur-3xl sm:-right-20 sm:top-10 sm:h-[620px] sm:w-[620px] sm:opacity-60"
+          style={{ background: "radial-gradient(circle, #e5a03a 0%, #c4441c 45%, transparent 70%)" }}
+          aria-hidden="true"
+        />
+        <Mandala className="animate-spin-slow absolute -right-72 top-[78%] -z-10 w-[620px] max-w-none -translate-y-1/2 text-ink/[0.12] sm:-right-40 sm:top-1/2 sm:w-[760px] lg:-right-24 lg:w-[880px]" />
+
+        <div className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-7xl flex-col justify-between px-4 pb-8 pt-16 sm:px-6 sm:pt-24 lg:px-10">
+          <div className="max-w-4xl">
+            <Reveal delay={0.08}>
+              <h1 className="display mt-4 text-[3.4rem] sm:text-7xl lg:text-[7.5rem]">
+                Intelligence for the systems{" "}
+                <span className="italic text-sindoor">that run the world.</span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.16}>
+              <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+                Bloomgard is an AI company from Mumbai. We build software for the systems societies
+                depend on: enterprise, energy, data, quantum, finance, education and healthcare.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.24}>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="#divisions"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-sindoor"
+                >
+                  Explore the divisions
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+                <a
+                  href={CRM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-paper/60 px-6 py-3.5 text-sm font-medium backdrop-blur transition-colors hover:border-ink/40"
+                >
+                  Try Bloomgard CRM <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </Reveal>
           </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
-            <Link href="/enterprise" className="hover:text-blue-700 transition-colors">Enterprise</Link>
-            <Link href="/energy" className="hover:text-blue-700 transition-colors">Energy</Link>
-            <Link href="/data" className="hover:text-blue-700 transition-colors">Data</Link>
-            <Link href="/qntm" className="hover:text-blue-700 transition-colors">QNTM</Link>
-            <Link href="/finance" className="hover:text-blue-700 transition-colors">Finance</Link>
-            <a href="mailto:support@bloomgard.co" className="hover:text-blue-700 transition-colors font-bold text-blue-900">Contact</a>
-          </nav>
+
+          <div className="eyebrow mt-20 flex flex-wrap items-center justify-between gap-4 border-t border-ink/10 pt-5 text-ink-mute">
+            <span>Mumbai, India</span>
+            <span className="hidden sm:inline">19.0760° N, 72.8777° E</span>
+            <MumbaiClock />
+            <span className="hidden md:inline">Scroll ↓</span>
+          </div>
         </div>
-      </header>
+      </section>
+
+      {/* Marquee */}
+      <div className="overflow-hidden border-y border-ink bg-ink py-5 text-paper" aria-hidden="true">
+        <div className="animate-marquee flex w-max items-center gap-10 whitespace-nowrap">
+          {[...divisions, ...divisions, ...divisions, ...divisions].map((d, i) => (
+            <span key={i} className="flex items-center gap-10">
+              <span className="display text-3xl">{d.name}</span>
+              <span className="text-marigold">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
 
       <main className="w-full">
-        
-        {/* 1. Hero Section */}
-        <section className="relative w-full min-h-[80vh] flex items-center border-b border-gray-200">
-          <div className="absolute inset-0 z-0">
-            <Image 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000" 
-              alt="Aerial view of a sprawling global industrial complex managed by AI"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
-          </div>
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-20">
-            <div className="max-w-4xl">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-slate-900 tracking-tight">
-                Elevating global business through <span className="text-blue-800">AI.</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-700 mb-10 leading-relaxed font-medium">
-                Bloomgard is developing intelligent software solutions designed to orchestrate large-scale global industries. While our active AI CRM already empowers modern enterprises, our upcoming divisions will optimize operations across critical sectors, from energy grids to quantum computing.
+        {/* Statement */}
+        <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-12">
+            <p className="eyebrow text-ink-mute lg:col-span-3">(01) Who we are</p>
+            <Reveal className="lg:col-span-9">
+              <p className="display text-4xl sm:text-5xl lg:text-6xl">
+                One company, seven divisions, and one aim:{" "}
+                <span className="italic text-ink-soft">
+                  put AI to work in the systems people depend on every day,
+                </span>{" "}
+                starting with the ones that keep India running.
               </p>
-              <div className="flex items-center gap-4">
-                <span className="text-sm font-bold tracking-widest text-slate-500 uppercase flex items-center">
-                  Scroll down to explore divisions <ArrowRight className="ml-2 w-4 h-4 rotate-90" />
-                </span>
-              </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
-        {/* 2. Scrolling Cards Section */}
-        <div className="relative w-full">
-          
-          {/* Card 1: Enterprise */}
-          <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-            <div className="absolute inset-0 z-0">
-              <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000" alt="Modern corporate office interior highlighting enterprise management" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
-            </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <BarChart3 className="w-8 h-8 text-blue-700" />
-                  <span className="text-sm font-bold tracking-widest text-blue-700 uppercase">Division 01</span>
-                </div>
-                <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900">
-                  Bloomgard Enterprise
+        {/* Divisions index */}
+        <section id="divisions" className="scroll-mt-16 border-t border-line">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+            <div className="flex flex-col justify-between gap-6 py-16 sm:flex-row sm:items-end">
+              <div>
+                <p className="eyebrow text-ink-mute">(02) Divisions</p>
+                <h2 className="display mt-4 text-5xl sm:text-6xl">
+                  The <span className="italic">Bloomgard</span> stack
                 </h2>
-                <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We are developing comprehensive software solutions to help large organizations manage their workforce efficiently. Our flagship AI CRM platform currently enables businesses to acquire leads, organize critical data, and significantly accelerate corporate workflows.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/enterprise" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                    Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
+              </div>
+              <p className="max-w-sm text-ink-soft">
+                Each division takes on one critical system, and all seven share the same AI core.
+              </p>
+            </div>
+
+            <ul className="border-t border-ink">
+              {divisions.map((d) => (
+                <li key={d.slug} className="border-b border-line">
+                  <Link
+                    href={`/${d.slug}`}
+                    className="group relative grid grid-cols-12 items-center gap-4 py-8 transition-colors sm:py-10"
+                  >
+                    <span className="absolute inset-y-0 -left-4 -right-4 -z-10 origin-bottom scale-y-0 bg-paper transition-transform duration-500 ease-out group-hover:scale-y-100 sm:-left-6 sm:-right-6" />
+                    <span className="eyebrow col-span-2 text-ink-mute sm:col-span-1">{d.index}</span>
+                    <DivisionGlyph
+                      slug={d.slug}
+                      className="col-span-2 hidden h-16 w-16 text-ink/70 transition-all duration-500 group-hover:rotate-45 group-hover:text-sindoor sm:block lg:col-span-1"
+                    />
+                    <div className="col-span-10 sm:col-span-6 lg:col-span-4">
+                      <h3 className="display text-4xl sm:text-5xl">{d.name}</h3>
+                    </div>
+                    <p className="col-span-12 text-ink-soft sm:col-span-9 sm:col-start-2 lg:col-span-4 lg:col-start-auto">
+                      {d.summary}
+                    </p>
+                    <div className="col-span-12 flex items-center justify-end gap-4 sm:col-span-2">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 transition-all group-hover:border-ink group-hover:bg-ink group-hover:text-paper">
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                      </span>
+                    </div>
                   </Link>
-                  <a href="https://cma.bloomgard.co" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-white text-blue-900 border border-gray-200 px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-slate-50 transition-colors shadow-lg">
-                    Access Active AI CRM <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Card 2: Energy */}
-          <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-            <div className="absolute inset-0 z-0">
-              <Image src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2000" alt="Modern power plant and renewable energy grid infrastructure" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-l from-slate-50/95 via-slate-50/85 to-transparent"></div>
-            </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-              <div className="max-w-3xl ml-auto">
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <Zap className="w-8 h-8 text-blue-700" />
-                  <span className="text-sm font-bold tracking-widest text-blue-700 uppercase">Division 02</span>
-                </div>
-                <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900">
-                  Bloomgard Energy
-                </h2>
-                <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We are designing software to power large-scale energy infrastructure and renewable grids. Our future AI systems will ensure uninterrupted power supply and facilitate predictive maintenance, enabling seamless integration of clean solar and wind energy.
-                </p>
-                <Link href="/energy" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                  Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Card 3: Data */}
-          <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-            <div className="absolute inset-0 z-0">
-              <Image src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000" alt="Massive illuminated server racks inside a global data center" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
-            </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <Database className="w-8 h-8 text-blue-700" />
-                  <span className="text-sm font-bold tracking-widest text-blue-700 uppercase">Division 03</span>
-                </div>
-                <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900">
-                  Bloomgard Data
-                </h2>
-                <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We are engineering software to manage extensive data center operations. Our upcoming tools will autonomously regulate server temperatures, optimize internet traffic routing, and rigorously prevent critical system downtime.
-                </p>
-                <Link href="/data" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                  Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Card 4: QNTM */}
-          <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-            <div className="absolute inset-0 z-0">
-              <Image src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2000" alt="Advanced quantum technology hardware setup" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-l from-slate-50/95 via-slate-50/85 to-transparent"></div>
-            </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-              <div className="max-w-3xl ml-auto">
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <Network className="w-8 h-8 text-blue-700" />
-                  <span className="text-sm font-bold tracking-widest text-blue-700 uppercase">Division 04</span>
-                </div>
-                <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900">
-                  Bloomgard QNTM
-                </h2>
-                <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We are developing cloud-based quantum computing infrastructure, deeply integrated with our AI pipelines in India. This advanced technology will unlock solutions to complex computational challenges that are beyond the reach of classical systems.
-                </p>
-                <Link href="/qntm" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                  Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Card 5: Finance */}
-          <section className="sticky top-0 h-screen w-full flex items-center justify-center border-b border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
-            <div className="absolute inset-0 z-0">
-              <Image src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2000" alt="Financial graphs and data on a dashboard" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent"></div>
-            </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <Building2 className="w-8 h-8 text-blue-700" />
-                  <span className="text-sm font-bold tracking-widest text-blue-700 uppercase">Division 05</span>
-                </div>
-                <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900">
-                  Bloomgard Finance
-                </h2>
-                <p className="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
-                  We are building specialized AI software for banks and financial institutions. Our forthcoming tools will streamline asset management, detect sophisticated fraud patterns, and fully automate routine banking operations.
-                </p>
-                <Link href="/finance" className="inline-flex items-center justify-center bg-blue-900 text-white px-8 py-4 font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg">
-                  Read Our Plan <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-          </section>
-
-        </div>
-
-        {/* 3. Our Vision Section */}
-        <section className="relative w-full bg-gradient-to-b from-blue-900 to-slate-900 py-32 border-b border-blue-950">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <Globe className="w-16 h-16 text-blue-300 mx-auto mb-8" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight text-white">
-              Bringing AI & Humanity Closer.
-            </h2>
-            <p className="text-xl md:text-2xl text-blue-50 max-w-4xl mx-auto leading-relaxed font-medium">
-              At Bloomgard, our vision extends far beyond raw computation and industrial management. We believe the true promise of artificial intelligence lies in its ability to elevate human potential. By automating the complex, the dangerous, and the mundane across global infrastructure, we aim to free humanity to focus on what matters most: creativity, connection, and progress. We don&apos;t just build software; we build the bridge to a liberated future.
-            </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
+        {/* Principles */}
+        <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
+          <p className="eyebrow text-ink-mute">(03) How we build</p>
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+            {principles.map((p, i) => (
+              <Reveal key={p.title} delay={i * 0.08} className="h-full">
+                <div className="flex h-full flex-col bg-paper p-8 sm:p-10">
+                  <span className="eyebrow text-sindoor">{p.mark}</span>
+                  <h3 className="display mt-14 text-3xl sm:text-4xl">{p.title}</h3>
+                  <p className="mt-4 leading-relaxed text-ink-soft">{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Vision */}
+        <section id="vision" className="relative isolate overflow-hidden bg-neel text-paper">
+          <div className="jaali absolute inset-0 -z-10" aria-hidden="true" />
+          <Mandala className="animate-spin-slow absolute left-1/2 top-1/2 -z-10 w-[1100px] max-w-none -translate-x-1/2 -translate-y-1/2 text-marigold/[0.12]" />
+          <div className="mx-auto max-w-5xl px-4 py-28 text-center sm:px-6 sm:py-40 lg:px-10">
+            <p className="eyebrow text-marigold">(04) Vision</p>
+            <Reveal>
+              <h2 className="display mt-8 text-5xl sm:text-7xl lg:text-8xl">
+                Bringing AI and humanity <span className="italic text-marigold">closer.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-paper/75 sm:text-xl">
+                The real promise of AI goes beyond computation. It&apos;s in what AI frees people to do. By
+                automating the complex, the dangerous and the repetitive across the world&apos;s infrastructure,
+                we want to give people more time for creativity, connection and progress.
+              </p>
+            </Reveal>
+            <p className="font-deva mt-14 text-2xl text-paper/50">वसुधैव कुटुम्बकम्</p>
+            <p className="eyebrow mt-2 text-paper/40">The world is one family</p>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="grain relative isolate">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 sm:py-32 lg:grid-cols-2 lg:px-10">
+            <div>
+              <p className="eyebrow text-ink-mute">(05) Start here</p>
+              <h2 className="display mt-6 text-5xl sm:text-6xl">
+                Start with <span className="italic text-sindoor">what&apos;s live.</span>
+              </h2>
+              <p className="mt-6 max-w-md text-lg text-ink-soft">
+                Bloomgard CRM captures every interaction, scores every lead and forecasts every deal. Your
+                team can start using it today.
+              </p>
+            </div>
+            <a
+              href={CRM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-3xl bg-ink p-8 text-paper sm:p-12"
+            >
+              <DivisionGlyph
+                slug="enterprise"
+                className="absolute -right-10 -top-10 h-64 w-64 text-paper/10 transition-transform duration-700 group-hover:rotate-90"
+              />
+              <span className="eyebrow text-marigold">Enterprise · 01</span>
+              <p className="display mt-16 text-4xl sm:text-5xl">Bloomgard CRM</p>
+              <span className="mt-8 inline-flex items-center gap-2 text-sm text-paper/70 transition-colors group-hover:text-paper">
+                cma.bloomgard.co
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </span>
+            </a>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full bg-slate-100 border-t border-gray-200 py-12 relative z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div>
-            <div className="flex items-center mb-6">
-              <span className="font-extrabold text-3xl tracking-tighter text-slate-400">Bloomgard.</span>
-            </div>
-            <p className="text-sm font-medium text-slate-500">
-              &copy; {new Date().getFullYear()} Bloomgard Group. All rights reserved. <br/>
-              Global Headquarters.
-            </p>
-          </div>
-          <div className="flex gap-16">
-            <div className="flex flex-col gap-3 text-sm text-slate-600 font-medium">
-              <span className="font-extrabold text-slate-900 mb-2 uppercase tracking-widest text-xs">Divisions</span>
-              <Link href="/enterprise" className="hover:text-blue-700 transition-colors">Enterprise</Link>
-              <Link href="/energy" className="hover:text-blue-700 transition-colors">Energy</Link>
-              <Link href="/data" className="hover:text-blue-700 transition-colors">Data</Link>
-              <Link href="/qntm" className="hover:text-blue-700 transition-colors">QNTM</Link>
-              <Link href="/finance" className="hover:text-blue-700 transition-colors">Finance</Link>
-            </div>
-            <div className="flex flex-col gap-3 text-sm text-slate-600 font-medium">
-              <span className="font-extrabold text-slate-900 mb-2 uppercase tracking-widest text-xs">Contact</span>
-              <a href="mailto:support@bloomgard.co" className="hover:text-blue-700 transition-colors font-bold text-blue-800">support@bloomgard.co</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

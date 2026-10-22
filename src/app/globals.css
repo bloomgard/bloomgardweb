@@ -1,55 +1,107 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --brand-primary: #0a2540; /* Authoritative corporate blue */
-  --brand-secondary: #0052cc;
-  --surface-gray: #f9fafb;
-  --border-color: #e5e7eb;
+  /* Kora cotton, kajal ink, sindoor, marigold and neel. */
+  --ivory: #f4efe4;
+  --paper: #faf7f0;
+  --ink: #15120e;
+  --ink-soft: #5a534a;
+  --ink-mute: #8c8478;
+  --line: #ddd3c0;
+  --sindoor: #c4441c;
+  --marigold: #e5a03a;
+  --neel: #18214a;
+  --neel-deep: #0e1430;
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: var(--brand-primary);
-  --color-brand-secondary: var(--brand-secondary);
+  --color-ivory: var(--ivory);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-line: var(--line);
+  --color-sindoor: var(--sindoor);
+  --color-marigold: var(--marigold);
+  --color-neel: var(--neel);
+  --color-neel-deep: var(--neel-deep);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --font-serif: var(--font-instrument-serif);
+  --font-deva: var(--font-deva);
+
+  --animate-spin-slow: spin 120s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-brand);
-  font-weight: 700;
+::selection {
+  background: var(--sindoor);
+  color: var(--paper);
+}
+
+/* Fine paper grain, so the ivory reads as material rather than flat colour. */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Jaali: a lattice screen pattern, used on dark surfaces. */
+.jaali {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='1'%3E%3Cpath d='M28 0 56 28 28 56 0 28Z'/%3E%3Ccircle cx='28' cy='28' r='10'/%3E%3Cpath d='M28 18v20M18 28h20'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.jaali-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%2315120e' stroke-opacity='.06' stroke-width='1'%3E%3Cpath d='M28 0 56 28 28 56 0 28Z'/%3E%3Ccircle cx='28' cy='28' r='10'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.eyebrow {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-weight: 400;
   letter-spacing: -0.02em;
+  line-height: 0.98;
 }
 
-p {
-  line-height: 1.6;
-}
-
-.section-padding {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-@media (min-width: 1024px) {
-  .section-padding {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

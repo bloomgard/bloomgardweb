@@ -10,5 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/data`, lastModified: new Date(), priority: 0.8 },
     { url: `${baseUrl}/qntm`, lastModified: new Date(), priority: 0.8 },
     { url: `${baseUrl}/finance`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/education`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/life`, lastModified: new Date(), priority: 0.8 },
   ];
 }
