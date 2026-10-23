@@ -27,6 +27,15 @@ const devanagari = Tiro_Devanagari_Hindi({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bloomgard.co"),
+  // Ink icon for light browser chrome, white icon for dark; ink is the default where media is ignored.
+  icons: {
+    icon: [
+      { url: "/icon-light.png", type: "image/png", sizes: "512x512" },
+      { url: "/icon-light.png", type: "image/png", sizes: "512x512", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark.png", type: "image/png", sizes: "512x512", media: "(prefers-color-scheme: dark)" },
+    ],
+    apple: "/apple-icon.png",
+  },
   title: {
     default: "Bloomgard",
     template: "%s · Bloomgard",
