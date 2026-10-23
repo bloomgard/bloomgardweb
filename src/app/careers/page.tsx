@@ -43,9 +43,8 @@ export default function Careers() {
               </p>
             </Reveal>
             <Reveal delay={0.18}>
-              <p className="display mt-12 text-3xl sm:text-4xl">
-                Share your idea at{" "}
-                <span className="select-all italic text-sindoor">{CONTACT_EMAIL}</span>
+              <p className="mt-12 text-xl font-medium sm:text-2xl">
+                Share your idea at <span className="select-all text-sindoor">{CONTACT_EMAIL}</span>
               </p>
             </Reveal>
           </div>
