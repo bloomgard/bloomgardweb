@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT_EMAIL, CRM_URL, divisions } from "@/lib/divisions";
+import { CONTACT_EMAIL, CRM_URL, DOCS_URL, divisions } from "@/lib/divisions";
 import MumbaiClock from "@/components/MumbaiClock";
 
 export default function SiteFooter() {
@@ -42,6 +42,16 @@ export default function SiteFooter() {
                   <Link href="/#vision" className="text-paper/80 transition-colors hover:text-paper">
                     Vision
                   </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="text-paper/80 transition-colors hover:text-paper">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <a href={DOCS_URL} target="_blank" rel="noopener noreferrer" className="text-paper/80 transition-colors hover:text-paper">
+                    Docs ↗
+                  </a>
                 </li>
                 <li>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="text-paper/80 transition-colors hover:text-paper">

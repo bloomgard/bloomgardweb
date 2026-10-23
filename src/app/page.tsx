@@ -123,7 +123,7 @@ export default function Home() {
 
       <main className="w-full">
         {/* Statement */}
-        <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
+        <section id="about" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-12">
             <p className="eyebrow text-ink-mute lg:col-span-3">(01) Who we are</p>
             <Reveal className="lg:col-span-9">
