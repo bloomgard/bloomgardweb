@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { CONTACT_EMAIL, divisions } from "@/lib/divisions";
+import { CONTACT_EMAIL, DOCS_URL, divisions } from "@/lib/divisions";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -49,12 +49,22 @@ export default function SiteHeader() {
           })}
         </nav>
 
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="hidden rounded-full bg-ink px-5 py-2 text-[0.84rem] font-medium text-paper transition-colors hover:bg-sindoor lg:inline-flex"
-        >
-          Contact
-        </a>
+        <div className="hidden items-center gap-2 lg:flex">
+          <a
+            href={DOCS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-ink bg-paper px-5 py-2 text-[0.84rem] font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+          >
+            Docs
+          </a>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="rounded-full border border-ink bg-ink px-5 py-2 text-[0.84rem] font-medium text-paper transition-colors hover:border-sindoor hover:bg-sindoor"
+          >
+            Contact
+          </a>
+        </div>
 
         <button
           type="button"
@@ -84,6 +94,14 @@ export default function SiteHeader() {
             ))}
           </ul>
           <div className="mt-6 flex flex-col gap-3">
+            <a
+              href={DOCS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-ink bg-paper px-5 py-3 text-sm font-medium text-ink"
+            >
+              Docs
+            </a>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-medium text-paper"

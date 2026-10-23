@@ -14,6 +14,7 @@ export type Division = {
 
 export const CRM_URL = "https://cma.bloomgard.co";
 export const CONTACT_EMAIL = "support@bloomgard.co";
+export const DOCS_URL = "https://docs.bloomgard.co";
 
 export const divisions: Division[] = [
   {
