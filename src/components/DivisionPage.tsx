@@ -100,54 +100,24 @@ export default function DivisionPage({
         {/* Pillars */}
         <section className="border-t border-line bg-gradient-to-b from-sky/60 to-paper">
           <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
-            <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
+            <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+              <div>
                 <p className="eyebrow text-ink-mute">({pillarsIndex}) Pillars</p>
                 <h2 className="display mt-4 text-5xl sm:text-6xl">
-                  What we&apos;re <span className="italic text-sindoor">building</span>
+                  What we&apos;re <span className="italic">building</span>
                 </h2>
               </div>
-              <p className="max-w-md text-lg leading-relaxed text-ink-soft lg:col-span-5 lg:justify-self-end">
-                Three problems {d.name} is going after, each one becoming a product on the same Bloomgard AI core.
-              </p>
             </div>
-
-            <div className="mt-14 grid gap-4 md:grid-cols-3">
+            <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
               {d.pillars.map((p, idx) => (
                 <Reveal key={p.title} delay={idx * 0.08} className="h-full">
-                  <article className="group relative isolate flex h-full min-h-[22rem] flex-col justify-between overflow-hidden rounded-3xl border border-line bg-paper p-8 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_24px_48px_-24px_rgba(39,71,216,0.45)] sm:p-9">
-                    {/* Hover fill */}
-                    <div
-                      className="absolute inset-0 -z-10 bg-[linear-gradient(140deg,#15120e_0%,#18214a_55%,#2747d8_130%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      aria-hidden="true"
-                    />
-                    {/* Oversized numeral */}
-                    <span
-                      className="display pointer-events-none absolute -bottom-12 -right-2 -z-10 select-none text-[13rem] leading-none text-sky transition-colors duration-500 group-hover:text-paper/[0.06]"
-                      aria-hidden="true"
-                    >
-                      {idx + 1}
+                  <div className="flex h-full flex-col bg-paper p-8 sm:p-10">
+                    <span className="eyebrow text-ink-mute">
+                      {d.index}.{idx + 1}
                     </span>
-
-                    <div className="flex items-center justify-between">
-                      <span className="eyebrow text-ink-mute transition-colors duration-500 group-hover:text-marigold">
-                        {d.index}.{idx + 1}
-                      </span>
-                      <DivisionGlyph
-                        slug={d.slug}
-                        className="h-12 w-12 text-blue transition-all duration-700 group-hover:rotate-90 group-hover:text-marigold"
-                      />
-                    </div>
-
-                    <div className="mt-12">
-                      <h3 className="display text-3xl transition-colors duration-500 group-hover:text-paper sm:text-[2.1rem]">
-                        {p.title}
-                      </h3>
-                      <p className="mt-4 leading-relaxed text-ink-soft transition-colors duration-500 group-hover:text-paper/75">
-                        {p.body}
-                      </p>
-                    </div>
-                  </article>
+                    <h3 className="display mt-16 text-3xl sm:text-4xl">{p.title}</h3>
+                    <p className="mt-4 leading-relaxed text-ink-soft">{p.body}</p>
+                  </div>
                 </Reveal>
               ))}
             </div>

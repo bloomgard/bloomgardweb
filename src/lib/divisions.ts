@@ -32,16 +32,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "A CRM that takes its own notes",
-        body: "Every call, email and meeting is logged automatically. Leads are scored on what customers actually say, and every deal carries a live chance of closing.",
+        title: "AI CRM, live now",
+        body: "Bloomgard CRM records calls, emails and meetings without anyone typing a note, scores each lead from what the customer actually said and shows the odds of every deal closing. Sales teams use it today.",
       },
       {
-        title: "Calendars that sort themselves",
-        body: "AI agents find meeting times across teams and time zones, so nobody has to ask “does Thursday work?” again.",
+        title: "Scheduling agents",
+        body: "Tell it who needs to meet and why. It checks everyone's calendar across time zones, proposes times, books the room and reschedules when plans change.",
       },
       {
-        title: "See next quarter now",
-        body: "Forecasts for revenue, attrition and supply delays that arrive while there's still time to act on them.",
+        title: "Forecasts you can act on",
+        body: "Revenue, hiring and supply-chain forecasts built from your CRM, finance and operations data, with an early warning the moment a number starts to drift.",
       },
     ],
     vision: {
@@ -63,16 +63,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "Hear failures coming",
-        body: "Acoustic and thermal sensing, read by AI, that spots hairline cracks in a turbine weeks before they turn into outages.",
+        title: "Predictive maintenance",
+        body: "Vibration, sound and heat sensors on turbines, transformers and inverters feed models that spot wear weeks early, so crews replace parts on a schedule instead of after a breakdown.",
       },
       {
-        title: "A grid that balances itself",
-        body: "Load shifted across cities in real time, so a May heatwave stays an inconvenience instead of a blackout.",
+        title: "Real-time load balancing",
+        body: "Forecasts demand area by area and shifts load between substations and sources minute by minute, keeping supply steady through peaks like a summer heatwave.",
       },
       {
-        title: "Sunshine after sunset",
-        body: "Surplus solar and wind stored in batteries and released exactly when demand spikes.",
+        title: "Smart battery dispatch",
+        body: "Decides when to charge batteries from surplus solar and wind and when to release that power, using price and demand forecasts to cover the evening peak.",
       },
     ],
     vision: {
@@ -94,16 +94,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "Cooling with a brain",
-        body: "Liquid cooling and airflow adjusted continuously from live chip temperatures across thousands of racks.",
+        title: "Autonomous cooling",
+        body: "Reads temperatures chip by chip and tunes fans, chillers and liquid-cooling valves rack by rack, cutting the power spent on cooling without letting anything run hot.",
       },
       {
-        title: "Failover in a blink",
-        body: "Faults detected and workloads moved in under a millisecond, before anyone notices something went wrong.",
+        title: "Instant failover",
+        body: "Watches every server, disk and network link for early signs of failure and moves workloads to healthy machines in milliseconds, before customers see an error.",
       },
       {
-        title: "Compute when the sun shines",
-        body: "Heavy jobs scheduled for the hours when renewable power is plentiful and cheap.",
+        title: "Carbon-aware scheduling",
+        body: "Moves flexible jobs such as AI training and backups to the hours and regions where clean power is cheapest and most plentiful.",
       },
     ],
     vision: {
@@ -125,16 +125,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "Quantum on tap",
-        body: "Simple APIs that let everyday enterprise software hand its hardest maths to a quantum processor.",
+        title: "Quantum cloud APIs",
+        body: "Send optimisation and simulation problems to quantum hardware through the same kind of API you already use for cloud computing. No physics degree required.",
       },
       {
-        title: "AI that steadies qubits",
-        body: "Neural networks that predict and cancel decoherence, so the answers come back accurate.",
+        title: "AI error correction",
+        body: "Models that learn each machine's noise and correct for it in real time, so results stay accurate as problems get bigger.",
       },
       {
-        title: "A million futures in seconds",
-        body: "Quantum Monte Carlo that runs a million portfolio scenarios while you wait.",
+        title: "Hybrid solvers",
+        body: "Each problem is split between classical and quantum processors automatically, starting with portfolio risk, logistics routing and molecular simulation.",
       },
     ],
     vision: {
@@ -156,16 +156,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "Fraud stopped mid-flight",
-        body: "Models that read behaviour and transaction history together, blocking unauthorised transfers before they settle.",
+        title: "Real-time fraud detection",
+        body: "Scores every transaction in milliseconds using spending patterns, device signals and behaviour, and holds suspicious payments before the money leaves the account.",
       },
       {
-        title: "Compliance that never sleeps",
-        body: "Every flow checked continuously against changing Indian and international regulation.",
+        title: "Automated compliance",
+        body: "Maps every transaction and process to the rules that apply, from RBI circulars to international anti-money-laundering standards, and flags gaps before an auditor does.",
       },
       {
-        title: "Signal from the noise",
-        body: "Market data and global news distilled into insight institutions can act on.",
+        title: "Back-office automation",
+        body: "AI agents handle reconciliations, KYC checks and regulatory reports, with every step logged so a person can review it.",
       },
     ],
     vision: {
@@ -187,16 +187,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "A tutor in every pocket",
-        body: "Explanations, practice and pace that adjust to each student, in Hindi, Marathi, Tamil, English and more.",
+        title: "Personal AI tutor",
+        body: "Explains concepts step by step, finds exactly where a student is stuck and adjusts the next question, in Hindi, Marathi, Tamil, English and more.",
       },
       {
-        title: "Teachers get their evenings back",
-        body: "Lesson plans, grading and progress reports handled automatically.",
+        title: "Teacher co-pilot",
+        body: "Drafts lesson plans, marks homework against the syllabus and writes progress reports, so teachers spend their time teaching.",
       },
       {
-        title: "From classroom to career",
-        body: "Learning paths that link what students study to the skills employers hire for, with credentials they can prove.",
+        title: "Skills and credentials",
+        body: "Learning paths matched to the skills employers hire for, ending in credentials that anyone can verify.",
       },
     ],
     vision: {
@@ -218,16 +218,16 @@ export const divisions: Division[] = [
     ],
     pillars: [
       {
-        title: "A second pair of eyes",
-        body: "AI that reads scans, labs and records alongside clinicians and flags risks earlier.",
+        title: "Clinical decision support",
+        body: "Reads scans, lab results and patient history alongside the doctor and flags what needs a closer look. The doctor makes every call.",
       },
       {
-        title: "Hospitals that flow",
-        body: "Beds, staff and supplies forecast ahead of demand, so more patients are seen sooner.",
+        title: "Hospital operations",
+        body: "Forecasts admissions and discharges to plan beds, staff rosters and supplies days ahead, so patients wait less.",
       },
       {
-        title: "Medicines, faster",
-        body: "AI-guided molecular search that turns years of trial and error into a focused set of candidates.",
+        title: "AI drug discovery",
+        body: "Screens millions of candidate molecules on a computer and ranks the most promising, so labs test a short list instead of starting from scratch.",
       },
     ],
     vision: {
