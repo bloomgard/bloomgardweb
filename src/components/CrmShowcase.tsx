@@ -1,11 +1,25 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { CRM_URL } from "@/lib/divisions";
+import { BLOOM_URL, CRM_URL } from "@/lib/divisions";
 
 const features = [
   "Logs every call, email and meeting on its own",
   "Scores leads on what customers actually say",
   "Gives every deal a live chance of closing",
+];
+
+const bloomFeatures = [
+  "Draft from templates or structured forms, not loose PDFs",
+  "Send for signing in any order, or one after another",
+  "Every step sealed into a chain anyone can check",
+];
+
+// Example steps for the illustrative proof record only.
+const proofSteps = [
+  { step: "Drafted", who: "Priya N.", seal: "a41f…9c2e" },
+  { step: "Sent for signing", who: "Priya N.", seal: "7d03…e518" },
+  { step: "Signed", who: "Arjun M.", seal: "c9b2…14af" },
+  { step: "Signed", who: "Konkan Logistics", seal: "02ee…8d71" },
 ];
 
 // Example rows for the illustrative preview only.
@@ -21,7 +35,7 @@ export default function CrmShowcase({ index }: { index: string }) {
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-10">
         <div className="grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="eyebrow text-ink-mute">({index}) Current product</p>
+            <p className="eyebrow text-ink-mute">({index}) Products</p>
             <h2 className="display mt-6 text-5xl sm:text-6xl">
               Bloomgard <span className="italic text-sindoor">CRM</span>
             </h2>
@@ -92,6 +106,74 @@ export default function CrmShowcase({ index }: { index: string }) {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Bloom */}
+        <div className="mt-24 grid items-center gap-14 border-t border-line pt-24 sm:mt-32 sm:pt-32 lg:grid-cols-12">
+          <div className="lg:order-last lg:col-span-5 lg:col-start-8">
+            <p className="eyebrow text-ink-mute">Test build · Open to try</p>
+            <h2 className="display mt-6 text-5xl sm:text-6xl">
+              Bloom<span className="italic text-sindoor">.</span>
+            </h2>
+            <p className="display mt-3 text-2xl text-ink-soft sm:text-3xl">Documents that prove themselves.</p>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
+              Create, send and sign documents in one place. Every signed document carries a public record that
+              anyone can check, without logging in.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {bloomFeatures.map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue text-paper">
+                    <Check className="h-3 w-3" />
+                  </span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={BLOOM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-blue"
+            >
+              Try the Bloom demo
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-mute">
+              Bloom is a test build. Signatures are real and verifiable, but they have no legal standing yet.
+            </p>
+          </div>
+
+          <Reveal className="lg:col-span-7">
+            <div className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-sky to-paper p-6 sm:p-8">
+              <div className="flex items-center justify-between">
+                <span className="eyebrow text-ink-soft">Proof record</span>
+                <span className="eyebrow text-ink-mute">Illustration</span>
+              </div>
+              <div className="mt-6 rounded-2xl border border-line bg-paper p-5">
+                <p className="eyebrow text-[0.6rem] text-ink-mute">Document</p>
+                <p className="display mt-1 text-3xl">Supply agreement</p>
+              </div>
+              <ol className="relative mt-4 space-y-3 before:absolute before:bottom-6 before:left-[1.15rem] before:top-6 before:w-px before:bg-blue/30">
+                {proofSteps.map((s, i) => (
+                  <li key={i} className="relative flex items-center gap-4 rounded-2xl border border-line bg-paper px-4 py-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue text-paper">
+                      <Check className="h-3 w-3" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-medium">{s.step}</span>
+                      <span className="block truncate text-xs text-ink-soft">{s.who}</span>
+                    </span>
+                    <span className="font-mono text-xs text-ink-soft">{s.seal}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-4 flex items-center justify-between rounded-2xl bg-ink px-5 py-4 text-paper">
+                <span className="text-sm">Record intact</span>
+                <span className="eyebrow text-marigold">4 of 4 seals verified</span>
               </div>
             </div>
           </Reveal>

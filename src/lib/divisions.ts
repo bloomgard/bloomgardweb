@@ -13,6 +13,7 @@ export type Division = {
 };
 
 export const CRM_URL = "https://cma.bloomgard.co";
+export const BLOOM_URL = "https://bloom.bloomgard.co";
 export const CONTACT_EMAIL = "support@bloomgard.co";
 export const DOCS_URL = "https://docs.bloomgard.co";
 
@@ -27,7 +28,7 @@ export const divisions: Division[] = [
     ledeEm: "We're teaching software to do them.",
     body: [
       "Every large company pays the same hidden tax: hours lost to logging calls, chasing follow-ups, copying numbers between spreadsheets and booking meetings across time zones.",
-      "Bloomgard CRM is live today. It records every interaction on its own, ranks leads by how warm the conversation really is and tells you which deals will close. Scheduling and forecasting come next, built on the same AI core.",
+      "Bloomgard CRM is live today. It records every interaction on its own, ranks leads by how warm the conversation really is and tells you which deals will close. Bloom, for documents that prove themselves, is open as a test build, and scheduling and forecasting come next, all on the same AI core.",
     ],
     pillars: [
       {

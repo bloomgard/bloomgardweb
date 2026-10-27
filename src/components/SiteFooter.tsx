@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT_EMAIL, CRM_URL, DOCS_URL, divisions } from "@/lib/divisions";
+import { BLOOM_URL, CONTACT_EMAIL, CRM_URL, DOCS_URL, divisions } from "@/lib/divisions";
 import MumbaiClock from "@/components/MumbaiClock";
 
 export default function SiteFooter() {
@@ -36,6 +36,11 @@ export default function SiteFooter() {
                 <li>
                   <a href={CRM_URL} target="_blank" rel="noopener noreferrer" className="text-paper/80 transition-colors hover:text-paper">
                     Bloomgard CRM ↗
+                  </a>
+                </li>
+                <li>
+                  <a href={BLOOM_URL} target="_blank" rel="noopener noreferrer" className="text-paper/80 transition-colors hover:text-paper">
+                    Bloom ↗
                   </a>
                 </li>
                 <li>
