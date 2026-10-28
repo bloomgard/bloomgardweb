@@ -1,6 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { BLOOM_URL, CRM_URL } from "@/lib/divisions";
+import { BLOOM_HELD_BACK_URL, BLOOM_URL, CRM_URL } from "@/lib/divisions";
 
 const features = [
   "Logs every call, email and meeting on its own",
@@ -114,7 +114,7 @@ export default function CrmShowcase({ index }: { index: string }) {
         {/* Bloom */}
         <div className="mt-24 grid items-center gap-14 border-t border-line pt-24 sm:mt-32 sm:pt-32 lg:grid-cols-12">
           <div className="lg:order-last lg:col-span-5 lg:col-start-8">
-            <p className="eyebrow text-ink-mute">Test build · Open to try</p>
+            <p className="eyebrow text-ink-mute">Unreleased</p>
             <h2 className="display mt-6 text-5xl sm:text-6xl">
               Bloom<span className="italic text-sindoor">.</span>
             </h2>
@@ -133,17 +133,28 @@ export default function CrmShowcase({ index }: { index: string }) {
                 </li>
               ))}
             </ul>
-            <a
-              href={BLOOM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-blue"
-            >
-              Try the Bloom demo
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href={BLOOM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper transition-colors hover:bg-blue"
+              >
+                Try the Bloom demo
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href={BLOOM_HELD_BACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-ink bg-paper px-6 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+              >
+                Why we held back
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-mute">
-              Bloom is a test build. Signatures are real and verifiable, but they have no legal standing yet.
+              Bloom is unreleased. Signatures in the demo are real and verifiable, but they have no legal standing.
             </p>
           </div>
 
